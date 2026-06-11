@@ -1,7 +1,7 @@
 /**
  * Tüm çekirdek paketlerin miras aldığı ortak Jest ayarı.
  * Paketler saf TypeScript olduğu için ts-jest + node ortamı yeterlidir.
- * (Bileşen testleri uygulama tarafında jest-expo ile koşar.)
+ * (Bileşen testleri `tasarim-sistemi` paketinde jest-expo ile koşar.)
  */
 module.exports = {
   testEnvironment: 'node',

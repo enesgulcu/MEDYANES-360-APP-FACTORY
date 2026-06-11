@@ -19,11 +19,14 @@ const Baglam = createContext<TemaBaglami>({
   renkler: VARSAYILAN_TEMA.renkler.light,
 });
 
+/** Kullanıcının ayarlardan seçebileceği tema modu. */
+export type TemaModu = 'light' | 'dark' | 'sistem';
+
 export interface TemaSaglayiciProps {
   /** Uygulamanın createTheme ile ürettiği teması. */
   tema: Tema;
   /** 'sistem' (varsayılan): cihaz ayarını izler. Kullanıcı ayarı ile ezilebilir. */
-  mod?: 'light' | 'dark' | 'sistem';
+  mod?: TemaModu;
   children: ReactNode;
 }
 

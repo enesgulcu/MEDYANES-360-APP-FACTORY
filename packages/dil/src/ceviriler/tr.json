@@ -17,7 +17,10 @@
     "gizlilikPolitikasi": "Gizlilik Politikası",
     "hesapSil": "Hesabımı ve verilerimi sil",
     "hesapSilOnay": "Hesabınız ve tüm verileriniz kalıcı olarak silinecek. Emin misiniz?",
-    "karanlikMod": "Karanlık mod"
+    "karanlikMod": "Karanlık mod",
+    "temaSistem": "Sistem",
+    "temaAcik": "Açık",
+    "temaKoyu": "Koyu"
   },
   "paywall": {
     "geriYukle": "Satın alımları geri yükle",

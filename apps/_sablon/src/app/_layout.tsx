@@ -7,11 +7,13 @@ import { StatusBar } from 'expo-status-bar';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { TemaSaglayici, ToastSaglayici } from '@medyanes360/tasarim-sistemi';
 import { kimlik, logger, paywall, uzakAyar } from '../altyapi/istemciler';
+import { useUygulamaDurumu } from '../altyapi/store';
 import { uygulamaTemasi } from '../altyapi/tema';
 
 const queryClient = new QueryClient();
 
 export default function KokYerlesim() {
+  const temaModu = useUygulamaDurumu((d) => d.temaModu);
   // Uygulama açılış zinciri: anonim giriş → kimliği loglamaya bağla →
   // app_open olayı → uzak ayarları tazele → abonelik durumunu tazele.
   useEffect(() => {
@@ -30,7 +32,7 @@ export default function KokYerlesim() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <TemaSaglayici tema={uygulamaTemasi}>
+      <TemaSaglayici tema={uygulamaTemasi} mod={temaModu}>
         <ToastSaglayici>
           <StatusBar style="auto" />
           <Stack screenOptions={{ headerShown: false }} />

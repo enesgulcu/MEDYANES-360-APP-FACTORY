@@ -17,7 +17,10 @@
     "gizlilikPolitikasi": "Privacy Policy",
     "hesapSil": "Delete my account and data",
     "hesapSilOnay": "Your account and all your data will be permanently deleted. Are you sure?",
-    "karanlikMod": "Dark mode"
+    "karanlikMod": "Dark mode",
+    "temaSistem": "System",
+    "temaAcik": "Light",
+    "temaKoyu": "Dark"
   },
   "paywall": {
     "geriYukle": "Restore purchases",

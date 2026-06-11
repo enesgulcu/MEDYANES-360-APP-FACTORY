@@ -1,16 +1,21 @@
-# KARARLAR — [Uygulama Adı]
+# KARARLAR — Şablon Uygulama
 
-> Tarihli kararlar ve gerekçeleri. Seviye 1 kararlar agent tarafından
-> yazılır; Seviye 2/3 kararlar proje sahibi onayıyla işlenir. (ANAYASA §6)
-
-## Şablon
-
-### [YYYY-AA-GG] — [Karar başlığı] (Seviye 1/2/3)
-
-- **Karar:** [ne kararlaştırıldı]
-- **Gerekçe:** [neden]
-- **Alternatifler:** [değerlendirilen diğer seçenekler ve neden elendiler]
+> Tarihli kararlar ve gerekçeleri. (ANAYASA §6)
 
 ---
 
-(Kararlar buraya en yeniden eskiye doğru eklenir)
+### 2026-06-11 — Ayarlardan karanlık mod seçimi (Seviye 1)
+
+- **Karar:** Zustand store'da `temaModu` (`sistem` | `light` | `dark`) tutulur; ayarlar
+  ekranında üç butonla değiştirilir; `_layout.tsx` bunu `TemaSaglayici`'ya iletir.
+- **Gerekçe:** Kuruluş denetiminde "elle kontrol edilebilir karanlık mod" eksikti;
+  altyapı hazırdı, yalnızca UI bağlantısı gerekiyordu.
+- **Alternatifler:** AsyncStorage ile kalıcılık — bilinçli ertelendi (uygulama bazında karar).
+
+### 2026-06-11 — Jest 29 + jest-expo hizalaması (Seviye 1)
+
+- **Karar:** Monorepo kök Jest sürümü 30 → 29'a indirildi; `tasarim-sistemi` bileşen
+  testleri jest-expo preset ile koşuyor.
+- **Gerekçe:** jest-expo SDK 56, Jest 29 bekliyor; hoisted monorepoda Jest 30 ile sürüm
+  çakışması tüm paket testlerini kırıyordu.
+- **Alternatifler:** Paket bazında izole Jest 30/29 — bakım maliyeti yüksek, elendi.

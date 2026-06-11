@@ -5,9 +5,8 @@ Token tabanlı tema + UI bileşen kütüphanesi (NativeWind tabanlı).
 ## Durum
 
 - ✅ Tema token sistemi (renk, tipografi, boşluk, köşe) — hazır ve testli.
-- ⏳ Görsel bileşenler (Button, Card, Input, Modal, Liste, Toast, Skeleton,
-  EmptyState) — şablon uygulamayla birlikte ekleniyor; React Native sürümünü
-  Expo SDK belirlediği için bileşenler o ortamda geliştirilir.
+- ✅ Görsel bileşenler (Button, Card, Input, Modal, Liste, Toast, Skeleton,
+  EmptyState) — jest-expo + RNTL render testleri ile doğrulanıyor.
 
 ## Temel fikir
 

@@ -4,16 +4,32 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import * as WebBrowser from 'expo-web-browser';
-import { Button, Card, Modal, useTema, useToast } from '@medyanes360/tasarim-sistemi';
+import {
+  Button,
+  Card,
+  Modal,
+  useTema,
+  useToast,
+  type TemaModu,
+} from '@medyanes360/tasarim-sistemi';
 import { DESTEKLENEN_DILLER, type DilKodu } from '@medyanes360/dil';
 import { dilDegistir } from '../altyapi/i18n';
 import { kimlik, logger } from '../altyapi/istemciler';
+import { useUygulamaDurumu } from '../altyapi/store';
 
 // Yer tutucu: her uygulama yayına çıkmadan kendi gizlilik politikası
 // URL'ini koyar (STORE-CHECKLIST §1 — zorunlu).
 const GIZLILIK_POLITIKASI_URL = 'https://medyanes360.example.com/gizlilik';
 
 const DIL_ETIKETLERI: Record<DilKodu, string> = { tr: 'Türkçe', en: 'English' };
+
+/** Ayarlardaki tema seçenekleri — etiketler çeviri dosyasından gelir. */
+const TEMA_SECENEKLERI: TemaModu[] = ['sistem', 'light', 'dark'];
+const TEMA_CEVIRI_ANAHTARLARI: Record<TemaModu, string> = {
+  sistem: 'ayarlar.temaSistem',
+  light: 'ayarlar.temaAcik',
+  dark: 'ayarlar.temaKoyu',
+};
 
 /**
  * Ayarlar ekranı (şablon zorunlulukları, prompt §11):
@@ -24,6 +40,8 @@ export default function Ayarlar() {
   const { renkler, tema } = useTema();
   const toast = useToast();
   const router = useRouter();
+  const temaModu = useUygulamaDurumu((d) => d.temaModu);
+  const temaModuAyarla = useUygulamaDurumu((d) => d.temaModuAyarla);
   const [silmeOnayiAcik, setSilmeOnayiAcik] = useState(false);
   const [siliniyor, setSiliniyor] = useState(false);
 
@@ -63,6 +81,20 @@ export default function Ayarlar() {
                 baslik={DIL_ETIKETLERI[dil]}
                 varyant={i18n.language === dil ? 'primary' : 'secondary'}
                 onPress={() => dilDegistir(dil)}
+                style={{ flex: 1 }}
+              />
+            ))}
+          </View>
+        </Card>
+
+        <Card baslik={t('ayarlar.karanlikMod')}>
+          <View style={{ flexDirection: 'row', gap: tema.bosluk.sm }}>
+            {TEMA_SECENEKLERI.map((secenek) => (
+              <Button
+                key={secenek}
+                baslik={t(TEMA_CEVIRI_ANAHTARLARI[secenek])}
+                varyant={temaModu === secenek ? 'primary' : 'secondary'}
+                onPress={() => temaModuAyarla(secenek)}
                 style={{ flex: 1 }}
               />
             ))}

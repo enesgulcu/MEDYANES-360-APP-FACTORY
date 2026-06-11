@@ -16,7 +16,10 @@
     "react-native": "*"
   },
   "devDependencies": {
+    "@testing-library/react-native": "^13.3.3",
     "@types/react": "~19.2.2",
+    "expo": "~56.0.11",
+    "jest-expo": "~56.0.3",
     "react": "19.2.3",
     "react-native": "0.85.3"
   }

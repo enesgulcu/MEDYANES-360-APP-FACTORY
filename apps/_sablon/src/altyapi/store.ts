@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { useSyncExternalStore } from 'react';
 import type { PaywallDurumu } from '@medyanes360/odeme';
+import type { TemaModu } from '@medyanes360/tasarim-sistemi';
 import { paywall } from './istemciler';
 
 /**
@@ -12,11 +13,16 @@ import { paywall } from './istemciler';
 interface UygulamaDurumu {
   onboardingTamam: boolean;
   onboardingiTamamla: () => void;
+  /** Ayarlardan seçilen tema modu; varsayılan cihazı izler. */
+  temaModu: TemaModu;
+  temaModuAyarla: (mod: TemaModu) => void;
 }
 
 export const useUygulamaDurumu = create<UygulamaDurumu>((set) => ({
   onboardingTamam: false,
   onboardingiTamamla: () => set({ onboardingTamam: true }),
+  temaModu: 'sistem',
+  temaModuAyarla: (mod) => set({ temaModu: mod }),
 }));
 
 /**

@@ -1,9 +1,11 @@
 # Önce hızlı denetim: yalnızca stage'lenmiş dosyalarda lint + format.
-pnpm exec lint-staged
+npx pnpm exec lint-staged
 
 # Çekirdek değişiklik kapısı (ANAYASA §4.3): packages/ altında değişiklik varsa
 # tam zincir koşar — çekirdek testleri → tüm uygulamaların derlemesi → lint.
-if git diff --cached --name-only | grep -q "^packages/"; then
+# grep yerine sh testi: Git Bash ve PowerShell'de güvenilir çalışır.
+STAGED_PACKAGES="$(git diff --cached --name-only -- packages/)"
+if [ -n "$STAGED_PACKAGES" ]; then
   echo "packages/ degisti -> pnpm verify calisiyor (cekirdek degisiklik kapisi)..."
-  pnpm verify
+  npx pnpm verify
 fi
