@@ -1,0 +1,30 @@
+{
+  "ortak": {
+    "tamam": "OK",
+    "iptal": "Cancel",
+    "kaydet": "Save",
+    "devam": "Continue",
+    "geri": "Back",
+    "kapat": "Close",
+    "yukleniyor": "Loading...",
+    "tekrarDene": "Try again",
+    "hataOlustu": "Something went wrong. Please try again.",
+    "agHatasi": "Please check your internet connection and try again."
+  },
+  "ayarlar": {
+    "baslik": "Settings",
+    "dil": "Language",
+    "gizlilikPolitikasi": "Privacy Policy",
+    "hesapSil": "Delete my account and data",
+    "hesapSilOnay": "Your account and all your data will be permanently deleted. Are you sure?",
+    "karanlikMod": "Dark mode"
+  },
+  "paywall": {
+    "geriYukle": "Restore purchases",
+    "kullanimKosullari": "Terms of Use",
+    "aylik": "Monthly",
+    "yillik": "Yearly",
+    "satinAl": "Purchase",
+    "otomatikYenileme": "Subscription renews automatically unless cancelled."
+  }
+}

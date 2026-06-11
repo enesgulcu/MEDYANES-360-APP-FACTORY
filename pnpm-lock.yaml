@@ -51,6 +51,84 @@ importers:
         specifier: ^8.61.0
         version: 8.61.0(eslint@10.4.1)(typescript@6.0.3)
 
+  packages/analitik:
+    dependencies:
+      '@medyanes360/cekirdek':
+        specifier: workspace:*
+        version: link:../cekirdek
+      zod:
+        specifier: ^4.4.3
+        version: 4.4.3
+
+  packages/bildirim:
+    dependencies:
+      '@medyanes360/cekirdek':
+        specifier: workspace:*
+        version: link:../cekirdek
+      zod:
+        specifier: ^4.4.3
+        version: 4.4.3
+
+  packages/cekirdek:
+    dependencies:
+      zod:
+        specifier: ^4.4.3
+        version: 4.4.3
+
+  packages/dil:
+    dependencies:
+      '@medyanes360/cekirdek':
+        specifier: workspace:*
+        version: link:../cekirdek
+      zod:
+        specifier: ^4.4.3
+        version: 4.4.3
+
+  packages/kimlik:
+    dependencies:
+      '@medyanes360/cekirdek':
+        specifier: workspace:*
+        version: link:../cekirdek
+      zod:
+        specifier: ^4.4.3
+        version: 4.4.3
+
+  packages/loglama:
+    dependencies:
+      '@medyanes360/analitik':
+        specifier: workspace:*
+        version: link:../analitik
+      '@medyanes360/cekirdek':
+        specifier: workspace:*
+        version: link:../cekirdek
+      zod:
+        specifier: ^4.4.3
+        version: 4.4.3
+
+  packages/odeme:
+    dependencies:
+      '@medyanes360/cekirdek':
+        specifier: workspace:*
+        version: link:../cekirdek
+      zod:
+        specifier: ^4.4.3
+        version: 4.4.3
+
+  packages/tasarim-sistemi:
+    dependencies:
+      '@medyanes360/cekirdek':
+        specifier: workspace:*
+        version: link:../cekirdek
+
+  packages/uzak-ayar:
+    dependencies:
+      '@medyanes360/cekirdek':
+        specifier: workspace:*
+        version: link:../cekirdek
+      zod:
+        specifier: ^4.4.3
+        version: 4.4.3
+
 packages:
 
   '@babel/code-frame@7.29.7':
@@ -2312,6 +2390,9 @@ packages:
   yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+
+  zod@4.4.3:
+    resolution: {integrity: sha512-ytENFjIJFl2UwYglde2jchW2Hwm4GJFLDiSXWdTrJQBIN9Fcyp7n4DhxJEiWNAJMV1/BqWfW/kkg71UDcHJyTQ==}
 
 snapshots:
 
@@ -5072,3 +5153,5 @@ snapshots:
       yargs-parser: 21.1.1
 
   yocto-queue@0.1.0: {}
+
+  zod@4.4.3: {}

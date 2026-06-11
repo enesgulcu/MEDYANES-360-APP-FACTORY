@@ -83,6 +83,10 @@ export default tseslint.config(
       sourceType: 'commonjs',
       globals: { module: 'writable', require: 'readonly', __dirname: 'readonly' },
     },
+    rules: {
+      // CJS dosyasında require doğru kullanımdır; ESM kuralı burada geçersiz.
+      '@typescript-eslint/no-require-imports': 'off',
+    },
   },
   // Paketlere yalnızca resmi giriş kapısından (@medyanes360/<paket>) erişilir.
   {

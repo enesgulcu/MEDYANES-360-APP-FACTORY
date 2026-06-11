@@ -1,0 +1,30 @@
+{
+  "ortak": {
+    "tamam": "Tamam",
+    "iptal": "İptal",
+    "kaydet": "Kaydet",
+    "devam": "Devam et",
+    "geri": "Geri",
+    "kapat": "Kapat",
+    "yukleniyor": "Yükleniyor...",
+    "tekrarDene": "Tekrar dene",
+    "hataOlustu": "Bir sorun oluştu. Lütfen tekrar deneyin.",
+    "agHatasi": "İnternet bağlantınızı kontrol edip tekrar deneyin."
+  },
+  "ayarlar": {
+    "baslik": "Ayarlar",
+    "dil": "Dil",
+    "gizlilikPolitikasi": "Gizlilik Politikası",
+    "hesapSil": "Hesabımı ve verilerimi sil",
+    "hesapSilOnay": "Hesabınız ve tüm verileriniz kalıcı olarak silinecek. Emin misiniz?",
+    "karanlikMod": "Karanlık mod"
+  },
+  "paywall": {
+    "geriYukle": "Satın alımları geri yükle",
+    "kullanimKosullari": "Kullanım Koşulları",
+    "aylik": "Aylık",
+    "yillik": "Yıllık",
+    "satinAl": "Satın al",
+    "otomatikYenileme": "Abonelik, iptal edilmediği sürece otomatik yenilenir."
+  }
+}
