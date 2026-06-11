@@ -1,0 +1,20 @@
+---
+description: MEDYANES 360 izolasyon ve kodlama kuralları
+alwaysApply: true
+---
+
+# Mimari ve Kodlama Kuralları
+
+- **İzolasyon:** `apps/X` içinden `apps/Y` import etmek YASAK. `packages/`
+  hiçbir uygulamayı import edemez (tek yönlü bağımlılık: apps → packages).
+- Paketlere yalnızca `@medyanes360/<paket>` giriş noktasından import yapılır;
+  derin import (`@medyanes360/x/src/...`) yasak.
+- TypeScript strict; `any` yasak (zorunlu istisnada gerekçe yorumu şart).
+- Dış dünyadan gelen HER veri (kullanıcı girdisi, API yanıtı, Remote Config)
+  Zod şemasıyla doğrulanır.
+- Kod tanımlayıcıları İngilizce; **yorumlar Türkçe** ve "neden"i açıklar.
+- Koda gömülü kullanıcı metni yasak — tüm metinler çeviri dosyalarında
+  (`tr.json`, `en.json`), bileşenler `t('anahtar')` kullanır.
+- Hata sessiz yutulmaz: kullanıcıya anlamlı mesaj ve/veya loglama paketine kayıt.
+- API anahtarları koda gömülmez: `.env` + EAS secrets.
+- Detaylar: `docs/KODLAMA.md`, `docs/TASARIM.md`.

@@ -1,0 +1,21 @@
+---
+description: MEDYANES 360 fabrikası oturum kuralları — her oturumda uygulanır
+alwaysApply: true
+---
+
+# Oturum Kuralları
+
+1. **Her oturuma okuyarak başla:**
+   - `docs/ANAYASA.md` (fabrikanın temel yasası)
+   - Üzerinde çalışılan uygulamanın `docs/STATUS.md` dosyası
+     (fabrika geneli iş ise `docs/STATUS-FACTORY.md`)
+2. **Oturum sonunda STATUS.md'yi güncelle.** İstisnasız: ne yapıldı, mevcut
+   durum, sıradaki adımlar, proje sahibinden bekleyen görevler.
+3. **Çekirdekte (`packages/`) değişiklik yaptıysan `pnpm verify` çalıştırmadan
+   oturumu bitirme.** Kırmızıysa iş bitmiş sayılmaz.
+4. Proje sahibi teknik değildir: tüm raporlar ve öneriler sade Türkçe,
+   gerektiğinde benzetmelerle anlatılır.
+5. Karar protokolü (detay: ANAYASA.md §6):
+   - Seviye 1 (rutin) → kendin al, `KARARLAR.md`'ye gerekçesiyle yaz.
+   - Seviye 2 (yön belirleyen) → seçenekler + öneriyle sun, onaysız ilerleme.
+   - Seviye 3 (kritik/para/yasal/mağaza) → maliyet-risk tablosuyla sun, açık onay bekle.
