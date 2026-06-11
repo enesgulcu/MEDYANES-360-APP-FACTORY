@@ -3,15 +3,15 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@tanstack/react-query';
+import { PAYWALL_RESULT, gosterRevenueCatPaywall } from '@medyanes360/odeme';
 import { Button, Card, Skeleton, useTema, useToast } from '@medyanes360/tasarim-sistemi';
 import { PaywallAyariSemasi, VARSAYILAN_PAYWALL_AYARI } from '@medyanes360/uzak-ayar';
-import { logger, odeme, paywall, uzakAyar } from '../altyapi/istemciler';
+import { logger, odeme, paywall, REVENUECAT_AKTIF, uzakAyar } from '../altyapi/istemciler';
 import { usePaywallDurumu } from '../altyapi/store';
 
 /**
- * Örnek paywall: başlığı ve öne çıkan ürünü uzak-ayar'dan gelir,
- * ürün listesi TanStack Query ile çekilir (mock RevenueCat).
- * Abonelik şartları + geri yükleme butonu mağaza zorunluluğudur.
+ * Paywall ekranı: RC dashboard paywall (native) + fabrika yedek UI (mock / web).
+ * Abonelik şartları + geri yükleme mağaza zorunluluğudur.
  */
 export default function Paywall() {
   const { t } = useTranslation();
@@ -22,7 +22,6 @@ export default function Paywall() {
 
   const paywallAyari = uzakAyar.getValue('paywall', PaywallAyariSemasi, VARSAYILAN_PAYWALL_AYARI);
 
-  // Sunucu verisi cache standardı: TanStack Query (ANAYASA §2).
   const { data: urunler, isLoading } = useQuery({
     queryKey: ['urunler'],
     queryFn: async () => {
@@ -33,6 +32,29 @@ export default function Paywall() {
     },
   });
 
+  async function rcPaywallAc() {
+    logger.log('rc_paywall_acildi');
+    const sonuc = await gosterRevenueCatPaywall();
+    if (!sonuc.ok) {
+      logger.logError(sonuc.error, 'rc-paywall');
+      toast.goster(t('ortak.hataOlustu'), 'hata');
+      return;
+    }
+
+    await paywall.durumuYenile();
+    const premium = paywall.getDurum().premium;
+
+    if (
+      sonuc.value === PAYWALL_RESULT.PURCHASED ||
+      sonuc.value === PAYWALL_RESULT.RESTORED ||
+      premium
+    ) {
+      logger.log('purchase_completed', { kaynak: 'rc-paywall', sonuc: sonuc.value });
+      toast.goster(t('ortak.tamam'), 'basari');
+      router.replace('/home');
+    }
+  }
+
   async function satinAl(urunId: string) {
     logger.log('purchase_started', { urun: urunId });
     await paywall.satinAl(urunId);
@@ -41,7 +63,7 @@ export default function Paywall() {
       logger.log('purchase_completed', { urun: urunId });
       toast.goster(t('ortak.tamam'), 'basari');
       router.replace('/home');
-    } else if (son.hataMesaji !== null) {
+    } else if (son.hataMesaji !== null && son.hataMesaji !== 'PURCHASE_CANCELLED') {
       toast.goster(t('ortak.hataOlustu'), 'hata');
     }
   }
@@ -71,6 +93,14 @@ export default function Paywall() {
           {t('paywall.altBaslik')}
         </Text>
 
+        {REVENUECAT_AKTIF && (
+          <Button
+            baslik={t('paywall.rcPaywallAc')}
+            varyant="primary"
+            onPress={() => void rcPaywallAc()}
+          />
+        )}
+
         {isLoading || urunler === undefined ? (
           <View style={{ gap: tema.bosluk.sm }}>
             <Skeleton yukseklik={96} />
@@ -99,7 +129,6 @@ export default function Paywall() {
           ))
         )}
 
-        {/* Abonelik şartları paywall'da görünür OLMAK ZORUNDA (STORE-CHECKLIST §5) */}
         <Text
           style={{
             color: renkler.metinSoluk,
@@ -112,6 +141,7 @@ export default function Paywall() {
         <Button
           baslik={t('paywall.geriYukle')}
           varyant="ghost"
+          yukleniyor={durum.evre === 'satin-aliniyor'}
           onPress={() => void paywall.geriYukle()}
         />
         <Button

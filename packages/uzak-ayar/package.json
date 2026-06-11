@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@medyanes360/cekirdek": "workspace:*",
+    "firebase": "^12.14.0",
     "zod": "^4.4.3"
   }
 }

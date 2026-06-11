@@ -8,6 +8,8 @@ packages:
 # Kurulum sırasında script çalıştırmasına izin verilen bağımlılıklar
 # (pnpm güvenlik gereği varsayılan olarak engeller).
 allowBuilds:
+  '@firebase/util': set this to true or false
+  protobufjs: set this to true or false
   unrs-resolver: true
 
 # NativeWind v5 dokümantasyonunun önerisi: lightningcss sürümü sabitlenmezse
@@ -32,3 +34,6 @@ minimumReleaseAgeExclude:
   - expo-modules-jsi@56.0.9
   - expo-router@56.2.10
   - expo@56.0.11
+  - expo-dev-client@56.0.20
+  - expo-dev-launcher@56.0.20
+  - expo-dev-menu@56.0.17

@@ -13,9 +13,10 @@ import {
   type TemaModu,
 } from '@medyanes360/tasarim-sistemi';
 import { DESTEKLENEN_DILLER, type DilKodu } from '@medyanes360/dil';
+import { gosterMusteriMerkezi } from '@medyanes360/odeme';
 import { dilDegistir } from '../altyapi/i18n';
-import { kimlik, logger } from '../altyapi/istemciler';
-import { useUygulamaDurumu } from '../altyapi/store';
+import { aliskanlikDeposu, kimlik, logger, paywall, REVENUECAT_AKTIF } from '../altyapi/istemciler';
+import { usePaywallDurumu, useUygulamaDurumu } from '../altyapi/store';
 
 // Yer tutucu: her uygulama yayına çıkmadan kendi gizlilik politikası
 // URL'ini koyar (STORE-CHECKLIST §1 — zorunlu).
@@ -42,12 +43,33 @@ export default function Ayarlar() {
   const router = useRouter();
   const temaModu = useUygulamaDurumu((d) => d.temaModu);
   const temaModuAyarla = useUygulamaDurumu((d) => d.temaModuAyarla);
+  const paywallDurumu = usePaywallDurumu();
   const [silmeOnayiAcik, setSilmeOnayiAcik] = useState(false);
   const [siliniyor, setSiliniyor] = useState(false);
+  const [musteriMerkeziAciliyor, setMusteriMerkeziAciliyor] = useState(false);
+
+  async function abonelikYonet() {
+    setMusteriMerkeziAciliyor(true);
+    const sonuc = await gosterMusteriMerkezi();
+    setMusteriMerkeziAciliyor(false);
+    if (!sonuc.ok) {
+      logger.logError(sonuc.error, 'musteri-merkezi');
+      toast.goster(t('ortak.hataOlustu'), 'hata');
+      return;
+    }
+    await paywall.durumuYenile();
+  }
 
   // Apple zorunluluğu: hesap/veri silme uygulama İÇİNDEN erişilebilir olmalı.
   async function hesabiSil() {
     setSiliniyor(true);
+    const uid = kimlik.getCurrentUser()?.uid;
+    if (uid != null && aliskanlikDeposu !== null) {
+      const veriSil = await aliskanlikDeposu.tumunuSil(uid);
+      if (!veriSil.ok) {
+        logger.logError(veriSil.error, 'habit-delete-all');
+      }
+    }
     const sonuc = await kimlik.deleteAccount();
     setSiliniyor(false);
     setSilmeOnayiAcik(false);
@@ -100,6 +122,28 @@ export default function Ayarlar() {
             ))}
           </View>
         </Card>
+
+        {REVENUECAT_AKTIF && (
+          <Card baslik={t('ayarlar.abonelik')}>
+            {paywallDurumu.premium && (
+              <Text
+                style={{
+                  color: renkler.basari,
+                  fontSize: tema.tipografi.boyut.kucuk,
+                  marginBottom: tema.bosluk.sm,
+                }}
+              >
+                {t('ayarlar.premiumAktif')}
+              </Text>
+            )}
+            <Button
+              baslik={t('ayarlar.abonelikYonet')}
+              varyant="secondary"
+              yukleniyor={musteriMerkeziAciliyor}
+              onPress={() => void abonelikYonet()}
+            />
+          </Card>
+        )}
 
         <Card>
           <Button

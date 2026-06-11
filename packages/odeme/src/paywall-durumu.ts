@@ -60,6 +60,9 @@ export class PaywallYoneticisi {
     const sonuc = await this.odeme.purchase(urunId);
     if (sonuc.ok) {
       this.uygula(sonuc.value, 'tamamlandi');
+    } else if (sonuc.error.message === 'PURCHASE_CANCELLED') {
+      // Kullanıcı mağaza diyaloğunu kapattı — hata sayılmaz.
+      this.guncelle({ evre: 'gosteriliyor', hataMesaji: null });
     } else {
       this.guncelle({ evre: 'hata', hataMesaji: sonuc.error.message });
     }

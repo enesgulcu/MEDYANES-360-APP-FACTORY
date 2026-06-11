@@ -6,30 +6,43 @@ Son güncelleme: 2026-06-11
 
 ## Mevcut durum
 
-Pilot uygulama **açıldı** (`apps/aliskanlik`): şablondan kopyalandı, kimliklendirme
-ve SPEC taslağı hazır. **Tasarım brifi cevapları bekleniyor** — tema ve ürün kodu
-henüz başlamadı.
+**MVP Aşama 1 tamamlandı:** Expo Go ile alışkanlık ekleme + günlük işaretleme +
+Firestore kaydı. Tema A (Sakin Yeşil) aktif. Firebase Auth (anonim) + Remote Config
+(ücretsiz limit 3) gerçek bağlantıda.
+
+## Mock → gerçek geçiş durumu
+
+| Aşama                   | Durum                           |
+| ----------------------- | ------------------------------- |
+| A Firebase projesi      | ✅ Proje sahibi tamamladı       |
+| B MVP iskelet           | ✅ Ana sayfa + ekle formu       |
+| C Auth + Firestore      | ✅ Web SDK (Expo Go uyumlu)     |
+| D Remote Config         | ✅ `ucretsiz_aliskanlik_limiti` |
+| E Bildirim (FCM)        | ⏳ Sonraki sprint               |
+| F RevenueCat gerçek IAP | ⏳ EAS build gerekir            |
+| G Crashlytics           | ⏳ Production öncesi            |
 
 ## Son oturumda yapılanlar
 
-- Şablondan `apps/aliskanlik` oluşturuldu.
-- Bundle ID: `com.medyanes360.aliskanlik`; EAS kanalları yapılandırıldı.
-- SPEC.md: ürün tanımı, izin envanteri (yalnızca bildirim), pilot modül matrisi.
+- Firebase config dosyaları yerleştirildi; `createFirebaseKimlik` + Firestore alışkanlık deposu.
+- Tema A (#059669), onboarding metinleri, ana sayfa + ekle ekranı.
+- Firestore kuralları rehberi (`docs/FIRESTORE-KURALLARI.md`).
 
 ## Sıradaki adımlar
 
-1. **Proje sahibi:** TASARIM.md tasarım brifi sorularını yanıtla.
-2. **Agent:** Brife göre 2–3 tema önerisi sun (Seviye 2).
-3. **Proje sahibi:** Tema seç → MVP geliştirmesine başlanır.
+1. **Proje sahibi:** Firestore kurallarını yayınla (rehber — zorunlu).
+2. Hatırlatma + bildirim (FCM, bağlamsal izin).
+3. Basit ilerleme grafiği (victory-native).
+4. EAS development build → gerçek RC satın alma testi.
 
 ## Proje sahibinden bekleyenler
 
-- [ ] **Tasarım brifi cevapları** (aşağıdaki sorular — bu oturumda soruldu)
-- [ ] Firebase hesabı (fabrika geneli — `docs/STATUS-FACTORY.md`)
-- [ ] RevenueCat hesabı (fabrika geneli)
+- [ ] Firestore Rules yayınla → `docs/FIRESTORE-KURALLARI.md`
+- [ ] Telefonda test: alışkanlık ekle + işaretle
+- [ ] RC entitlement identifier doğrulama
 
 ## Aylık servis maliyetleri
 
-| Servis | Maliyet | Not                      |
-| ------ | ------- | ------------------------ |
-| —      | 0$      | Henüz ücretli servis yok |
+| Servis              | Maliyet |
+| ------------------- | ------- |
+| Firebase Spark + RC | 0$      |

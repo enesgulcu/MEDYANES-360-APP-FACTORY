@@ -20,7 +20,10 @@
     "karanlikMod": "Dark mode",
     "temaSistem": "System",
     "temaAcik": "Light",
-    "temaKoyu": "Dark"
+    "temaKoyu": "Dark",
+    "abonelik": "Subscription",
+    "abonelikYonet": "Manage subscription",
+    "premiumAktif": "Alışkanlık Pro active"
   },
   "paywall": {
     "geriYukle": "Restore purchases",
@@ -28,6 +31,7 @@
     "aylik": "Monthly",
     "yillik": "Yearly",
     "satinAl": "Purchase",
-    "otomatikYenileme": "Subscription renews automatically unless cancelled."
+    "otomatikYenileme": "Subscription renews automatically unless cancelled.",
+    "rcPaywallAc": "View plans (RevenueCat)"
   }
 }

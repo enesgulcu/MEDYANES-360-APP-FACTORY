@@ -1,23 +1,35 @@
 {
   "onboarding": {
-    "adim1Baslik": "Welcome!",
-    "adim1Aciklama": "This template is a sample app wired to all core packages of the MEDYANES 360 factory.",
-    "adim2Baslik": "Everything is ready",
-    "adim2Aciklama": "Theme, language, logging, payments and notifications are all wired up. New apps are copied from this template.",
+    "adim1Baslik": "Track your habits",
+    "adim1Aciklama": "Take small steps every day. Aliskanlik is a simple companion for the goals you don't want to forget.",
+    "adim2Baslik": "Check in, keep going",
+    "adim2Aciklama": "Add a habit, mark it done at the end of the day. See your streak and stay motivated.",
     "basla": "Let's start"
   },
-  "paywall": {
-    "baslik": "Go Premium",
-    "altBaslik": "Unlock all features",
-    "kampanya": "Special offer today!",
-    "sonra": "Not now"
-  },
   "home": {
-    "baslik": "Home",
-    "hosgeldin": "Welcome to the template app",
-    "aciklama": "This screen showcases the design system components. In a new app, replace it with real content.",
-    "bosListeBaslik": "No records yet",
-    "bosListeAciklama": "The List component shows an EmptyState when empty.",
-    "ayarlaraGit": "Settings"
+    "baslik": "Today",
+    "bosListeBaslik": "No habits yet",
+    "bosListeAciklama": "Add your first habit to get started — drink water, read a book, anything you like.",
+    "ayarlaraGit": "Settings",
+    "aliskanlikEkle": "Add habit",
+    "limitBilgi": "{{mevcut}} / {{limit}} free habits",
+    "seriGun": "🔥 {{seri}} day streak",
+    "premiumAktif": "Aliskanlik Pro active"
+  },
+  "aliskanlik": {
+    "form": {
+      "baslik": "New habit",
+      "adEtiket": "Habit name",
+      "adPlaceholder": "e.g. Drink 2 glasses of water",
+      "renkEtiket": "Color",
+      "adZorunlu": "Please enter a name"
+    }
+  },
+  "paywall": {
+    "baslik": "Aliskanlik Pro",
+    "altBaslik": "Unlimited habits and advanced stats",
+    "kampanya": "Save with the yearly plan!",
+    "sonra": "Not now",
+    "rcPaywallAc": "View plans (RevenueCat)"
   }
 }

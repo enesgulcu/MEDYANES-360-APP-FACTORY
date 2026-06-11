@@ -20,7 +20,10 @@
     "karanlikMod": "Karanlık mod",
     "temaSistem": "Sistem",
     "temaAcik": "Açık",
-    "temaKoyu": "Koyu"
+    "temaKoyu": "Koyu",
+    "abonelik": "Abonelik",
+    "abonelikYonet": "Aboneliği yönet",
+    "premiumAktif": "Alışkanlık Pro aktif"
   },
   "paywall": {
     "geriYukle": "Satın alımları geri yükle",
@@ -28,6 +31,7 @@
     "aylik": "Aylık",
     "yillik": "Yıllık",
     "satinAl": "Satın al",
-    "otomatikYenileme": "Abonelik, iptal edilmediği sürece otomatik yenilenir."
+    "otomatikYenileme": "Abonelik, iptal edilmediği sürece otomatik yenilenir.",
+    "rcPaywallAc": "Planları gör (RevenueCat)"
   }
 }

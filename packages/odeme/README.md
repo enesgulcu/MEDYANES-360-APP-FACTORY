@@ -34,7 +34,9 @@ await paywall.satinAl('aylik_premium');
 - "Geri yükle" (restore) butonu mağaza zorunluluğudur; paywall'da her zaman
   bulunur (STORE-CHECKLIST.md §5).
 
-## RevenueCat'e geçiş (yapılacak)
+## RevenueCat'e geçiş
 
-Hesap açılınca `createRevenueCatOdeme` eklenecek (react-native-purchases).
-API anahtarları `.env` + EAS secrets'tan okunacak; arayüz değişmez.
+`createRevenueCatOdeme` hazır (`react-native-purchases` peer dependency).
+API anahtarları `.env` + EAS secrets; entitlement identifier
+`EXPO_PUBLIC_REVENUECAT_ENTITLEMENT_ID`. RC Paywall: `gosterRevenueCatPaywall`,
+Customer Center: `gosterMusteriMerkezi`.

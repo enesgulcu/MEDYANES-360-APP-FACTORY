@@ -30,7 +30,9 @@ export function Liste<T>({
       ItemSeparatorComponent={() => (
         <View style={{ height: 1, backgroundColor: renkler.kenarlik }} />
       )}
-      ListEmptyComponent={bosDurum !== undefined ? <>{bosDurum}</> : null}
+      ListEmptyComponent={
+        bosDurum !== undefined ? () => <View style={{ flex: 1 }}>{bosDurum}</View> : undefined
+      }
       contentContainerStyle={{ flexGrow: 1, padding: tema.bosluk.md }}
     />
   );
