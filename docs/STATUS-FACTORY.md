@@ -127,5 +127,6 @@ yalnızca mağaza yayını öncesi, açık onayınla.
 ## Oturum geçmişi
 
 - **2026-06-11 — Kuruluş oturumu.** Fabrika temeli sıfırdan kuruldu:
-  dokümanlar, monorepo, 9 çekirdek paket, şablon uygulama. 5 git commit
+  dokümanlar, monorepo, 9 çekirdek paket, şablon uygulama. 6 git commit
   atıldı (her aşama bir geri dönüş noktası). Tüm doğrulamalar yeşil.
+  Proje sahibi özeti: `docs/GUNCEL-DURUM-RAPORU.md`.
