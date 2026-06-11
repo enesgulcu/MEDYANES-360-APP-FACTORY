@@ -8,6 +8,13 @@
 export type Platform = 'ios' | 'android';
 
 /**
+ * Uygulamanın çalıştığı ortam — SDK seçimi buna göre yapılır.
+ * web / expo-go: mağaza SDK'sı yok → mock veya yedek UI.
+ * native: EAS build veya dev client → gerçek IAP SDK'sı.
+ */
+export type CalismaOrtami = 'web' | 'expo-go' | 'native';
+
+/**
  * Her uygulamanın kimlik bilgisi. Loglama ve analitik olayları
  * hangi uygulamadan geldiğini bu bilgiyle ayırt eder.
  */

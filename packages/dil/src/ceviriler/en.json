@@ -32,6 +32,7 @@
     "yillik": "Yearly",
     "satinAl": "Purchase",
     "otomatikYenileme": "Subscription renews automatically unless cancelled.",
+    "urunlerYuklenemedi": "Plans could not be loaded. Please try again.",
     "rcPaywallAc": "View plans (RevenueCat)"
   }
 }

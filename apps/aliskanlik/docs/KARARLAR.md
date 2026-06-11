@@ -30,3 +30,20 @@
   yalnızca `istemciler.ts` ve `.env` ile yapılır.
 - **Ürünler:** `monthly`, `yearly` — entitlement `Alışkanlık Pro` (dashboard identifier ile eşleşmeli).
 - **Not:** Gerçek satın alma için EAS development build gerekir; Expo Go Preview API Mode ile UI test edilir.
+
+### 2026-06-11 — Ortam bazlı ödeme seçimi (Seviye 1)
+
+- **Karar:** `createOdemeIstemcisi` + `calismaOrtamiAl()` (`packages/odeme`); web ve Expo Go'da mock, yalnızca native build'de RC SDK.
+- **Gerekçe:** Web'de RC yapılandırılmıyordu → fiyatlar sonsuz yüklemede kalıyordu; Expo Go'da RC browser modu indexedDB hatası veriyordu.
+- **Alternatifler:** Her uygulamada manuel `if (expoGo)` — tekrar eden, hata eğilimli; fabrika standardı tercih edildi.
+
+### 2026-06-11 — Expo Go'da Remote Config fetch atlanır (Seviye 1)
+
+- **Karar:** Firebase Web SDK `fetchAndActivate` yalnızca IndexedDB olan ortamlarda (web tarayıcı) çalışır; Expo Go / RN'de `defaultConfig` kullanılır.
+- **Gerekçe:** Web SDK Remote Config, fetch önbelleği için indexedDB ister; React Native'de bu API yok → hata ve gereksiz uyarı.
+- **Sonraki adım:** EAS build'de `@react-native-firebase/remote-config` ile gerçek sunucu çekimi (Seviye 2).
+
+### 2026-06-11 — AsyncStorage v3 API (Seviye 1)
+
+- **Karar:** Zustand persist ve Firebase Auth için `createAsyncStorage('...')` kullanılır; default export (legacy) kullanılmaz.
+- **Gerekçe:** async-storage v3'te default export Expo Go'da `Native module is null` hatası verir.

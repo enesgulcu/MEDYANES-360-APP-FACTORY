@@ -3,10 +3,10 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@tanstack/react-query';
-import { PAYWALL_RESULT, gosterRevenueCatPaywall } from '@medyanes360/odeme';
+import { PAYWALL_SONUC, gosterRevenueCatPaywall } from '@medyanes360/odeme';
 import { Button, Card, Skeleton, useTema, useToast } from '@medyanes360/tasarim-sistemi';
 import { PaywallAyariSemasi, VARSAYILAN_PAYWALL_AYARI } from '@medyanes360/uzak-ayar';
-import { logger, odeme, paywall, REVENUECAT_AKTIF, uzakAyar } from '../altyapi/istemciler';
+import { logger, odeme, paywall, REVENUECAT_SDK_AKTIF, uzakAyar } from '../altyapi/istemciler';
 import { usePaywallDurumu } from '../altyapi/store';
 
 /**
@@ -22,7 +22,12 @@ export default function Paywall() {
 
   const paywallAyari = uzakAyar.getValue('paywall', PaywallAyariSemasi, VARSAYILAN_PAYWALL_AYARI);
 
-  const { data: urunler, isLoading } = useQuery({
+  const {
+    data: urunler,
+    isLoading,
+    isError,
+    refetch,
+  } = useQuery({
     queryKey: ['urunler'],
     queryFn: async () => {
       logger.log('paywall_shown');
@@ -30,6 +35,7 @@ export default function Paywall() {
       if (!sonuc.ok) throw sonuc.error;
       return sonuc.value;
     },
+    retry: 1,
   });
 
   async function rcPaywallAc() {
@@ -45,8 +51,8 @@ export default function Paywall() {
     const premium = paywall.getDurum().premium;
 
     if (
-      sonuc.value === PAYWALL_RESULT.PURCHASED ||
-      sonuc.value === PAYWALL_RESULT.RESTORED ||
+      sonuc.value === PAYWALL_SONUC.PURCHASED ||
+      sonuc.value === PAYWALL_SONUC.RESTORED ||
       premium
     ) {
       logger.log('purchase_completed', { kaynak: 'rc-paywall', sonuc: sonuc.value });
@@ -93,7 +99,7 @@ export default function Paywall() {
           {t('paywall.altBaslik')}
         </Text>
 
-        {REVENUECAT_AKTIF && (
+        {REVENUECAT_SDK_AKTIF && (
           <Button
             baslik={t('paywall.rcPaywallAc')}
             varyant="primary"
@@ -101,10 +107,27 @@ export default function Paywall() {
           />
         )}
 
-        {isLoading || urunler === undefined ? (
+        {isLoading ? (
           <View style={{ gap: tema.bosluk.sm }}>
             <Skeleton yukseklik={96} />
             <Skeleton yukseklik={96} />
+          </View>
+        ) : isError || urunler === undefined || urunler.length === 0 ? (
+          <View style={{ gap: tema.bosluk.sm, alignItems: 'center' }}>
+            <Text
+              style={{
+                color: renkler.metinSoluk,
+                textAlign: 'center',
+                fontSize: tema.tipografi.boyut.govde,
+              }}
+            >
+              {t('paywall.urunlerYuklenemedi')}
+            </Text>
+            <Button
+              baslik={t('ortak.tekrarDene')}
+              varyant="secondary"
+              onPress={() => void refetch()}
+            />
           </View>
         ) : (
           urunler.map((urun) => (

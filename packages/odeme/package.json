@@ -13,11 +13,13 @@
     "zod": "^4.4.3"
   },
   "peerDependencies": {
+    "expo-constants": ">=51.0.0",
     "react-native": ">=0.74.0",
     "react-native-purchases": ">=8.0.0",
     "react-native-purchases-ui": ">=8.0.0"
   },
   "devDependencies": {
+    "jest": "^29.7.0",
     "react-native": "0.85.3",
     "react-native-purchases": "^10.2.2",
     "react-native-purchases-ui": "^10.2.2"

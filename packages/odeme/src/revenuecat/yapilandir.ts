@@ -1,7 +1,16 @@
-import { Platform } from 'react-native';
-import Purchases, { LOG_LEVEL } from 'react-native-purchases';
 import { err, ok, type Result } from '@medyanes360/cekirdek';
+import { nativeMagazaSdkKullanilabilirMi } from '../runtime-ortam';
 import { revenueCatHataMesaji } from './yardimci';
+
+function platformOs(): string {
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const { Platform } = require('react-native') as { Platform: { OS: string } };
+    return Platform.OS;
+  } catch {
+    return 'ios';
+  }
+}
 
 export interface RevenueCatYapilandirma {
   iosApiKey: string;
@@ -19,12 +28,17 @@ export function revenueCatYapilandirildiMi(): boolean {
   return yapilandirildi;
 }
 
+async function purchasesSdk() {
+  const modul = await import('react-native-purchases');
+  return modul.default;
+}
+
 /**
  * RevenueCat SDK'sını platforma uygun public API anahtarıyla başlatır.
- * Web'de no-op: web satın alma ayrı RC Web Billing akışı gerektirir.
+ * Web ve Expo Go'da no-op: mock ödeme kullanılır.
  */
 export async function yapilandirRevenueCat(config: RevenueCatYapilandirma): Promise<Result<void>> {
-  if (Platform.OS === 'web') {
+  if (!nativeMagazaSdkKullanilabilirMi()) {
     return ok(undefined);
   }
 
@@ -33,9 +47,9 @@ export async function yapilandirRevenueCat(config: RevenueCatYapilandirma): Prom
   }
 
   const apiKey =
-    Platform.OS === 'ios'
+    platformOs() === 'ios'
       ? config.iosApiKey
-      : Platform.OS === 'android'
+      : platformOs() === 'android'
         ? config.androidApiKey
         : '';
 
@@ -44,6 +58,8 @@ export async function yapilandirRevenueCat(config: RevenueCatYapilandirma): Prom
   }
 
   try {
+    const Purchases = await purchasesSdk();
+    const { LOG_LEVEL } = await import('react-native-purchases');
     Purchases.setLogLevel(config.debug === true ? LOG_LEVEL.VERBOSE : LOG_LEVEL.INFO);
     Purchases.configure({
       apiKey,
@@ -58,11 +74,12 @@ export async function yapilandirRevenueCat(config: RevenueCatYapilandirma): Prom
 
 /** Anonim / giriş yapmış kullanıcıyı RC appUserID ile eşleştirir. */
 export async function revenueCatKullaniciEslestir(appUserId: string): Promise<Result<void>> {
-  if (Platform.OS === 'web' || !yapilandirildi) {
+  if (!nativeMagazaSdkKullanilabilirMi() || !yapilandirildi) {
     return ok(undefined);
   }
 
   try {
+    const Purchases = await purchasesSdk();
     await Purchases.logIn(appUserId);
     return ok(undefined);
   } catch (hata) {

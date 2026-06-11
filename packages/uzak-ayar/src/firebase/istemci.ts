@@ -5,7 +5,7 @@ import {
   getRemoteConfig,
   type RemoteConfig,
 } from 'firebase/remote-config';
-import { parseWith } from '@medyanes360/cekirdek';
+import { indexedDbKullanilabilirMi, parseWith } from '@medyanes360/cekirdek';
 import type { z } from 'zod';
 import type { UzakAyarIstemcisi } from '../client';
 
@@ -65,7 +65,17 @@ export function createFirebaseUzakAyar(
     },
 
     async refresh() {
-      await fetchAndActivate(remoteConfig);
+      // Expo Go / RN: Web SDK fetch indexedDB ister — yoksa defaultConfig kullanılır.
+      if (!indexedDbKullanilabilirMi()) {
+        return;
+      }
+
+      try {
+        await fetchAndActivate(remoteConfig);
+      } catch (hata) {
+        // Tarayıcıda ağ hatası vb.; varsayılanlar zaten yüklü.
+        console.warn('[uzak-ayar] fetchAndActivate başarısız, varsayılanlar korunuyor.', hata);
+      }
     },
   };
 }

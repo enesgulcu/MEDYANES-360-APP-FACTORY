@@ -15,7 +15,14 @@ import {
 import { DESTEKLENEN_DILLER, type DilKodu } from '@medyanes360/dil';
 import { gosterMusteriMerkezi } from '@medyanes360/odeme';
 import { dilDegistir } from '../altyapi/i18n';
-import { aliskanlikDeposu, kimlik, logger, paywall, REVENUECAT_AKTIF } from '../altyapi/istemciler';
+import {
+  aliskanlikDeposu,
+  kimlik,
+  logger,
+  paywall,
+  REVENUECAT_AKTIF,
+  REVENUECAT_SDK_AKTIF,
+} from '../altyapi/istemciler';
 import { usePaywallDurumu, useUygulamaDurumu } from '../altyapi/store';
 
 // Yer tutucu: her uygulama yayına çıkmadan kendi gizlilik politikası
@@ -136,12 +143,14 @@ export default function Ayarlar() {
                 {t('ayarlar.premiumAktif')}
               </Text>
             )}
-            <Button
-              baslik={t('ayarlar.abonelikYonet')}
-              varyant="secondary"
-              yukleniyor={musteriMerkeziAciliyor}
-              onPress={() => void abonelikYonet()}
-            />
+            {REVENUECAT_SDK_AKTIF && (
+              <Button
+                baslik={t('ayarlar.abonelikYonet')}
+                varyant="secondary"
+                yukleniyor={musteriMerkeziAciliyor}
+                onPress={() => void abonelikYonet()}
+              />
+            )}
           </Card>
         )}
 

@@ -1,4 +1,3 @@
-import Purchases, { PURCHASES_ERROR_CODE } from 'react-native-purchases';
 import { err, ok, type Result } from '@medyanes360/cekirdek';
 import type { AbonelikDurumu, OdemeIstemcisi, Urun } from '../client';
 import { UrunSemasi } from '../client';
@@ -14,12 +13,16 @@ export interface RevenueCatOdemeSecenekleri {
   entitlementId: string;
 }
 
-function kullaniciIptalMi(hata: unknown): boolean {
+async function purchasesSdk() {
+  const modul = await import('react-native-purchases');
+  return modul;
+}
+
+function kullaniciIptalMi(hata: unknown, iptalKodu: string): boolean {
   if (typeof hata !== 'object' || hata === null || !('code' in hata)) {
     return false;
   }
-  const kod = (hata as { code: string }).code;
-  return kod === PURCHASES_ERROR_CODE.PURCHASE_CANCELLED_ERROR;
+  return (hata as { code: string }).code === iptalKodu;
 }
 
 function sdkHazirMi(): Result<void> {
@@ -42,6 +45,7 @@ export function createRevenueCatOdeme(secenekler: RevenueCatOdemeSecenekleri): O
       if (!hazir.ok) return hazir;
 
       try {
+        const { default: Purchases } = await purchasesSdk();
         const offerings = await Purchases.getOfferings();
         const mevcut = offerings.current;
         if (mevcut === null || mevcut.availablePackages.length === 0) {
@@ -67,6 +71,7 @@ export function createRevenueCatOdeme(secenekler: RevenueCatOdemeSecenekleri): O
       if (!hazir.ok) return hazir;
 
       try {
+        const { default: Purchases } = await purchasesSdk();
         const offerings = await Purchases.getOfferings();
         const paket =
           offerings.current?.availablePackages.find(
@@ -83,7 +88,8 @@ export function createRevenueCatOdeme(secenekler: RevenueCatOdemeSecenekleri): O
         const { customerInfo } = await Purchases.purchasePackage(paket);
         return ok(abonelikDurumuFromCustomerInfo(customerInfo, entitlementId));
       } catch (hata) {
-        if (kullaniciIptalMi(hata)) {
+        const { PURCHASES_ERROR_CODE } = await purchasesSdk();
+        if (kullaniciIptalMi(hata, PURCHASES_ERROR_CODE.PURCHASE_CANCELLED_ERROR)) {
           return err(new Error('PURCHASE_CANCELLED'));
         }
         return err(revenueCatHataMesaji(hata));
@@ -95,6 +101,7 @@ export function createRevenueCatOdeme(secenekler: RevenueCatOdemeSecenekleri): O
       if (!hazir.ok) return hazir;
 
       try {
+        const { default: Purchases } = await purchasesSdk();
         const customerInfo = await Purchases.restorePurchases();
         return ok(abonelikDurumuFromCustomerInfo(customerInfo, entitlementId));
       } catch (hata) {
@@ -107,6 +114,7 @@ export function createRevenueCatOdeme(secenekler: RevenueCatOdemeSecenekleri): O
       if (!hazir.ok) return hazir;
 
       try {
+        const { default: Purchases } = await purchasesSdk();
         const customerInfo = await Purchases.getCustomerInfo();
         return ok(abonelikDurumuFromCustomerInfo(customerInfo, entitlementId));
       } catch (hata) {

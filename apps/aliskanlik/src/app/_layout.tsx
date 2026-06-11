@@ -15,8 +15,8 @@ import {
   kimlik,
   logger,
   paywall,
-  REVENUECAT_AKTIF,
   REVENUECAT_ENTITLEMENT_ID,
+  REVENUECAT_SDK_AKTIF,
   uzakAyar,
 } from '../altyapi/istemciler';
 import {
@@ -34,7 +34,7 @@ export default function KokYerlesim() {
   // app_open → uzak ayar → abonelik durumu tazele.
   useEffect(() => {
     void (async () => {
-      if (REVENUECAT_AKTIF) {
+      if (REVENUECAT_SDK_AKTIF) {
         const rcYapilandir = await yapilandirRevenueCat({
           iosApiKey: REVENUECAT_IOS_API_KEY,
           androidApiKey: REVENUECAT_ANDROID_API_KEY,
@@ -48,7 +48,7 @@ export default function KokYerlesim() {
       const giris = await kimlik.signInAnonymously();
       if (giris.ok) {
         logger.setUserId(giris.value.uid);
-        if (REVENUECAT_AKTIF) {
+        if (REVENUECAT_SDK_AKTIF) {
           const eslestir = await revenueCatKullaniciEslestir(giris.value.uid);
           if (!eslestir.ok) {
             logger.logError(eslestir.error, 'revenuecat-eslestir');
@@ -59,14 +59,21 @@ export default function KokYerlesim() {
       }
 
       logger.log('app_open');
-      await uzakAyar.refresh();
+      try {
+        await uzakAyar.refresh();
+      } catch (hata) {
+        logger.logError(
+          hata instanceof Error ? hata : new Error(String(hata)),
+          'uzak-ayar-refresh',
+        );
+      }
       await paywall.durumuYenile();
     })();
   }, []);
 
   // RC müşteri bilgisi değişince (yenileme, iptal, restore) premium durumunu güncelle.
   useEffect(() => {
-    if (!REVENUECAT_AKTIF) return undefined;
+    if (!REVENUECAT_SDK_AKTIF) return undefined;
 
     return revenueCatDurumDinleyici(REVENUECAT_ENTITLEMENT_ID, (abonelik) => {
       void paywall.durumuYenile();
