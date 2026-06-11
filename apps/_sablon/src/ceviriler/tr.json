@@ -1,0 +1,23 @@
+{
+  "onboarding": {
+    "adim1Baslik": "Hoş geldin!",
+    "adim1Aciklama": "Bu şablon, MEDYANES 360 fabrikasının tüm çekirdek paketleriyle bağlı örnek bir uygulamadır.",
+    "adim2Baslik": "Her şey hazır",
+    "adim2Aciklama": "Tema, dil, loglama, ödeme ve bildirim altyapısı çalışır durumda. Yeni uygulama bu şablondan kopyalanır.",
+    "basla": "Başlayalım"
+  },
+  "paywall": {
+    "baslik": "Premium'a geç",
+    "altBaslik": "Tüm özelliklerin kilidini aç",
+    "kampanya": "Bugüne özel fırsat!",
+    "sonra": "Şimdi değil"
+  },
+  "home": {
+    "baslik": "Ana Sayfa",
+    "hosgeldin": "Şablon uygulamaya hoş geldin",
+    "aciklama": "Bu ekran tasarım sistemi bileşenlerini örnekler. Yeni uygulamada bu ekran silinip gerçek içerikle değiştirilir.",
+    "bosListeBaslik": "Henüz kayıt yok",
+    "bosListeAciklama": "Liste bileşeni boş durumda EmptyState gösterir.",
+    "ayarlaraGit": "Ayarlar"
+  }
+}

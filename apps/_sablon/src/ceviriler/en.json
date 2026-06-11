@@ -1,0 +1,23 @@
+{
+  "onboarding": {
+    "adim1Baslik": "Welcome!",
+    "adim1Aciklama": "This template is a sample app wired to all core packages of the MEDYANES 360 factory.",
+    "adim2Baslik": "Everything is ready",
+    "adim2Aciklama": "Theme, language, logging, payments and notifications are all wired up. New apps are copied from this template.",
+    "basla": "Let's start"
+  },
+  "paywall": {
+    "baslik": "Go Premium",
+    "altBaslik": "Unlock all features",
+    "kampanya": "Special offer today!",
+    "sonra": "Not now"
+  },
+  "home": {
+    "baslik": "Home",
+    "hosgeldin": "Welcome to the template app",
+    "aciklama": "This screen showcases the design system components. In a new app, replace it with real content.",
+    "bosListeBaslik": "No records yet",
+    "bosListeAciklama": "The List component shows an EmptyState when empty.",
+    "ayarlaraGit": "Settings"
+  }
+}
