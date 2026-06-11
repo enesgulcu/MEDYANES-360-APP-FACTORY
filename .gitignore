@@ -1,0 +1,30 @@
+# Bağımlılıklar
+node_modules/
+
+# Expo / build çıktıları
+.expo/
+dist/
+web-build/
+*.tsbuildinfo
+ios/
+android/
+
+# Ortam değişkenleri ve gizli anahtarlar — asla commit edilmez
+.env
+.env.*
+!.env.example
+
+# Firebase yapılandırma dosyaları (uygulama bazlı, git dışı)
+google-services.json
+GoogleService-Info.plist
+
+# EAS
+.easignore
+
+# Test / kapsam
+coverage/
+
+# İşletim sistemi / editör
+.DS_Store
+Thumbs.db
+*.log

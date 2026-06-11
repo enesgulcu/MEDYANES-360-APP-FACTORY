@@ -1,0 +1,11 @@
+# Arşiv (apps/_arsiv) bilinçli olarak workspace DIŞINDA tutulur:
+# çekirdek değişiklik kapısı (pnpm verify) arşivi derlemez. (ANAYASA §4.6)
+packages:
+  - 'packages/*'
+  - 'apps/*'
+  - '!apps/_arsiv/**'
+
+# Kurulum sırasında script çalıştırmasına izin verilen bağımlılıklar
+# (pnpm güvenlik gereği varsayılan olarak engeller).
+allowBuilds:
+  unrs-resolver: true

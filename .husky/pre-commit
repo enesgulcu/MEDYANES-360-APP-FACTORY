@@ -1,0 +1,9 @@
+# Önce hızlı denetim: yalnızca stage'lenmiş dosyalarda lint + format.
+pnpm exec lint-staged
+
+# Çekirdek değişiklik kapısı (ANAYASA §4.3): packages/ altında değişiklik varsa
+# tam zincir koşar — çekirdek testleri → tüm uygulamaların derlemesi → lint.
+if git diff --cached --name-only | grep -q "^packages/"; then
+  echo "packages/ degisti -> pnpm verify calisiyor (cekirdek degisiklik kapisi)..."
+  pnpm verify
+fi
