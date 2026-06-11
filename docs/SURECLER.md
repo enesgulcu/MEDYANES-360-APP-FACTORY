@@ -12,54 +12,63 @@ Yeni uygulama = şablonu kopyalamak + kimliklendirmek. Adımlar sırayla:
 1. **Fikir ve isim**
    - Proje sahibi fikri anlatır; agent `SPEC.md` taslağı çıkarır, onaylatır.
    - Uygulama adı ve klasör adı belirlenir (küçük harf, boşluksuz, Türkçe karaktersiz).
-2. **Şablonu kopyala**
+2. **İzin envanteri**
+   - SPEC.md'ye **izin envanteri** yazılır: hangi izin, hangi özellik için, hangi
+     platform, kullanıcıya gösterilecek gerekçe metni (ANAYASA §8).
+   - Envanter dışı izin kodda kullanılamaz; yeni izin eklemek Seviye 2 karardır.
+3. **Şablonu kopyala**
    - `apps/_sablon` → `apps/<uygulama-adi>` olarak kopyalanır.
    - `package.json` içindeki `name`, `app.json` içindeki `name`, `slug`,
      `scheme` ve bundle ID güncellenir: `com.medyanes360.<uygulamaadi>`.
    - `docs/SPEC.md`, `STATUS.md`, `KARARLAR.md` şablonları doldurulmaya başlanır.
-3. **Tasarım brifi**
+4. **Tasarım brifi**
    - TASARIM.md'deki brif soruları proje sahibine sorulur.
    - Tema önerileri sunulur (Seviye 2), onaylanan tema uygulanır.
-4. **Firebase projesi** (proje sahibi + agent rehberliği)
+5. **Firebase projesi** (proje sahibi + agent rehberliği)
    - console.firebase.google.com → yeni proje → iOS ve Android uygulamaları eklenir.
    - `google-services.json` ve `GoogleService-Info.plist` indirilir, uygulama
      klasörüne (git dışı) konur; gerekli servisleri (Auth, Firestore, Analytics,
      Remote Config, Messaging) aç.
    - Firestore kuralları deny-by-default yüklenir.
-5. **RevenueCat projesi** (proje sahibi + agent rehberliği)
+6. **RevenueCat projesi** (proje sahibi + agent rehberliği)
    - app.revenuecat.com → yeni proje → iOS/Android app eklenir; API anahtarları
      `.env`'e yazılır.
    - Ürünler/abonelikler mağaza taraflarıyla eşleştirilir (mağaza hesapları
      hazır olduğunda).
-6. **EAS yapılandırması**
+7. **EAS yapılandırması**
    - `eas.json` bu uygulamaya özel profillerle güncellenir; update kanalı
      uygulamaya özel adlandırılır (ör. `<uygulama-adi>-production`).
    - Secrets EAS'a yüklenir.
-7. **İlk çalıştırma ve doğrulama**
+8. **İlk çalıştırma ve doğrulama**
    - `pnpm install` → uygulama dev modda açılır → onboarding, paywall (mock),
      ayarlar, dil değişimi elle denenir.
    - `pnpm verify` yeşil olmalı.
-8. **Geliştirme** SPEC.md'ye göre ilerler; mağaza gönderimi öncesi
+9. **Geliştirme** SPEC.md'ye göre ilerler; mağaza gönderimi öncesi
    STORE-CHECKLIST.md uygulanır.
 
 ## 2. Çalışma oturumu yönetimi
 
 ### Oturum başı
+
 1. `docs/ANAYASA.md` okunur.
 2. Üzerinde çalışılan uygulamanın `docs/STATUS.md` dosyası okunur
    (fabrika geneli iş ise `docs/STATUS-FACTORY.md`).
 3. STATUS'taki "sıradaki adımlar" ve "bekleyen görevler" gözden geçirilir.
 
 ### Oturum sırasında
+
 - Seviye 1 kararlar `KARARLAR.md`'ye tarihli ve gerekçeli işlenir.
 - Seviye 2/3 konular biriktirilmez; ortaya çıktığında proje sahibine sorulur.
 
 ### Oturum sonu (istisnasız)
+
 1. İlgili `STATUS.md` güncellenir: ne yapıldı, mevcut durum, sıradaki adımlar,
    proje sahibinden bekleyenler.
 2. Çekirdekte (`packages/`) değişiklik yapıldıysa `pnpm verify` koşulur;
    kırmızıysa oturum bitmiş sayılmaz.
 3. Anlamlı bir bütün tamamlandıysa git commit atılır (Türkçe, açıklayıcı mesaj).
+4. **Commit'ler GitHub'a push edilir.** Push'suz oturum kapanmış sayılmaz;
+   repo her zaman güncel kalmalıdır.
 
 ## 3. Çekirdek (packages/) değişiklik süreci
 

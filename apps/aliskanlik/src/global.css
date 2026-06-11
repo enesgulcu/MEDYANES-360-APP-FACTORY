@@ -1,0 +1,6 @@
+/* NativeWind v5 (Tailwind v4, CSS-first yapılandırma) */
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/preflight.css' layer(base);
+@import 'tailwindcss/utilities.css';
+
+@import 'nativewind/theme';

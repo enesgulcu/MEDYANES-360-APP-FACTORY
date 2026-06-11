@@ -35,7 +35,16 @@
 - [ ] Hesap silme, kullanıcı verilerini de (Firestore log dahil) siliyor/anonimleştiriyor.
 - [ ] Ayarlar ekranındaki "hesap/veri silme talebi" akışı uçtan uca test edildi.
 
-## 5. Abonelik ve paywall
+## 5. İzinler ve gerekçe metinleri
+
+- [ ] SPEC.md'deki **izin envanteri** ile uygulamada istenen izinler birebir eşleşiyor;
+      envanter dışı izin yok.
+- [ ] Tüm izinlerin kullanıcıya gösterilen **gerekçe metinleri** yazıldı (TR + EN),
+      dürüst ve özellikle uyumlu (ANAYASA §8).
+- [ ] İzinler bağlamsal isteniyor; uygulama açılışında toplu izin diyaloğu yok.
+- [ ] İzin reddedildiğinde uygulama çalışmaya devam ediyor (zarif geri çekilme test edildi).
+
+## 6. Abonelik ve paywall
 
 - [ ] Abonelik şartları paywall'da GÖRÜNÜR: fiyat, süre, otomatik yenileme bilgisi.
 - [ ] Kullanım Koşulları (EULA) ve Gizlilik Politikası linkleri paywall'da mevcut.
@@ -43,7 +52,7 @@
 - [ ] RevenueCat ürünleri ile mağaza ürünleri (ID ve fiyatlar) birebir eşleşiyor.
 - [ ] Sandbox/test satın alma akışı uçtan uca denendi.
 
-## 6. Mağaza varlıkları (metadata)
+## 7. Mağaza varlıkları (metadata)
 
 - [ ] Uygulama adı, alt başlık, açıklama (TR + EN) hazır.
 - [ ] Anahtar kelimeler (iOS) / kısa açıklama (Android) hazır.
@@ -52,20 +61,20 @@
 - [ ] Uygulama ikonu tüm boyutlarda; alfa kanalı yok (iOS).
 - [ ] Geliştirici adı **MEDYANES 360** olarak görünüyor.
 
-## 7. Yaş derecelendirmesi
+## 8. Yaş derecelendirmesi
 
 - [ ] Apple yaş derecelendirme anketi dolduruldu.
 - [ ] Google Play içerik derecelendirme anketi (IARC) dolduruldu.
 - [ ] İçerik, beyan edilen yaş grubuyla tutarlı.
 
-## 8. İnceleme ekibi için hazırlık
+## 9. İnceleme ekibi için hazırlık
 
 - [ ] **Test hesabı** oluşturuldu (kullanıcı adı + şifre) ve App Review notlarına yazıldı.
 - [ ] Giriş gerektiren tüm özellikler test hesabıyla erişilebilir.
 - [ ] Özel donanım/konum gerektiren özellikler için açıklama/video eklendi.
 - [ ] Demo/inceleme notları sade İngilizce yazıldı.
 
-## 9. Teknik son kontroller
+## 10. Teknik son kontroller
 
 - [ ] `pnpm verify` yeşil; sürüm ve build numarası artırıldı.
 - [ ] Bundle ID `com.medyanes360.uygulamaadi` şablonuna uygun.
