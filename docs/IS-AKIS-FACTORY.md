@@ -74,7 +74,7 @@ Son güncelleme: 2026-06-16
 - `docs/SURECLER.md`, `AGENT-OTURUM-CHECKLIST.md`, `.cursor/rules/` — süreç güncellemesi
 - `scripts/yeni-uygulama.mjs` — yeni uygulamalara IS-AKIS kopyası
 
-**Commit:** _henüz yok_
+**Commit:** `aa44c0b`
 **Durum:** ✅ tamamlandı
 
 ---
@@ -96,5 +96,5 @@ Son güncelleme: 2026-06-16
 - `apps/*/docs/onizleme/` — görseller + manifest + VITRIN.md
 - `docs/GORSEL-VITRIN.md` — proje sahibi rehberi
 
-**Commit:** _henüz yok_
+**Commit:** `aa44c0b`
 **Durum:** ✅ tamamlandı

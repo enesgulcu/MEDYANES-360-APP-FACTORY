@@ -9,7 +9,8 @@ Son güncelleme: 2026-06-16
 **MVP Aşama 1 tamamlandı.** Expo Go / web ile alışkanlık ekleme + işaretleme hazır.
 Konsol hataları (RC, Remote Config, AsyncStorage) çekirdekte giderildi — telefon testi bekleniyor.
 
-İş geçmişi (her istek kayıtlı): `docs/IS-AKIS.md`
+İş geçmişi (her istek kayıtlı): `docs/IS-AKIS.md`  
+Görsel vitrin: [`docs/onizleme/VITRIN.md`](onizleme/VITRIN.md)
 
 ## Mock → gerçek geçiş durumu
 
