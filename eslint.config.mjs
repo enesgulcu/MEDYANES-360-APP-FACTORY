@@ -76,6 +76,17 @@ export default tseslint.config(
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     },
   },
+  // Node.js script dosyaları (pnpm new-app vb.)
+  {
+    files: ['scripts/**/*.mjs'],
+    languageOptions: {
+      sourceType: 'module',
+      globals: {
+        console: 'readonly',
+        process: 'readonly',
+      },
+    },
+  },
   // CommonJS konfigürasyon dosyaları (jest vb.) node globallerini kullanır.
   {
     files: ['**/*.cjs'],

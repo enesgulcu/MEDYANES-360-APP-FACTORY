@@ -1,4 +1,5 @@
-// Paketin tek resmi giriş kapısı. Derin import (src/...) yasaktır (KODLAMA.md §6).
+// Paketin tek resmi giriş kapısı.
 export * from './types';
 export * from './utils';
+export * from './servis-modu';
 export * from './runtime-ortam';

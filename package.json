@@ -11,7 +11,8 @@
     "test": "pnpm -r test",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "new-app": "node scripts/yeni-uygulama.mjs"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx,mjs}": [

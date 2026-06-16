@@ -9,6 +9,7 @@ import { TemaSaglayici, ToastSaglayici } from '@medyanes360/tasarim-sistemi';
 import { kimlik, logger, paywall, uzakAyar } from '../altyapi/istemciler';
 import { useUygulamaDurumu } from '../altyapi/store';
 import { uygulamaTemasi } from '../altyapi/tema';
+import { ErrorBoundary } from '../bilesenler/ErrorBoundary';
 
 const queryClient = new QueryClient();
 
@@ -31,13 +32,15 @@ export default function KokYerlesim() {
   }, []);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <TemaSaglayici tema={uygulamaTemasi} mod={temaModu}>
-        <ToastSaglayici>
-          <StatusBar style="auto" />
-          <Stack screenOptions={{ headerShown: false }} />
-        </ToastSaglayici>
-      </TemaSaglayici>
-    </QueryClientProvider>
+    <ErrorBoundary>
+      <QueryClientProvider client={queryClient}>
+        <TemaSaglayici tema={uygulamaTemasi} mod={temaModu}>
+          <ToastSaglayici>
+            <StatusBar style="auto" />
+            <Stack screenOptions={{ headerShown: false }} />
+          </ToastSaglayici>
+        </TemaSaglayici>
+      </QueryClientProvider>
+    </ErrorBoundary>
   );
 }

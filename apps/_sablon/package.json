@@ -9,7 +9,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "typecheck": "tsc --noEmit",
-    "test": "jest --passWithNoTests"
+    "test": "jest --passWithNoTests",
+    "e2e:smoke": "maestro test .maestro/smoke.yaml"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",

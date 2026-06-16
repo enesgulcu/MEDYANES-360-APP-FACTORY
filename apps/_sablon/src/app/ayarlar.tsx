@@ -78,6 +78,7 @@ export default function Ayarlar() {
             {DESTEKLENEN_DILLER.map((dil) => (
               <Button
                 key={dil}
+                testID={`ayarlar-dil-${dil}`}
                 baslik={DIL_ETIKETLERI[dil]}
                 varyant={i18n.language === dil ? 'primary' : 'secondary'}
                 onPress={() => dilDegistir(dil)}
@@ -114,7 +115,12 @@ export default function Ayarlar() {
           />
         </Card>
 
-        <Button baslik={t('ortak.geri')} varyant="ghost" onPress={() => router.back()} />
+        <Button
+          baslik={t('ortak.geri')}
+          testID="ayarlar-geri"
+          varyant="ghost"
+          onPress={() => router.back()}
+        />
       </View>
 
       <Modal acik={silmeOnayiAcik} onKapat={() => setSilmeOnayiAcik(false)}>

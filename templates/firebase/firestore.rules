@@ -1,0 +1,18 @@
+rules_version = '2';
+
+// Fabrika varsayılanı: deny-by-default (ANAYASA §7).
+// Yalnızca ihtiyaç duyulan koleksiyonlar açılır; her kural SPEC ile gerekçelendirilir.
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+  // Kullanıcı bazlı loglar: yalnızca kendi userId'sine yazabilir/okuyabilir.
+  match /kullanici_loglari/{userId}/olaylar/{olayId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Diğer tüm yollar kapalı.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -1,0 +1,38 @@
+name: Verify
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: verify-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: pnpm verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: pnpm kurulumu
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11.5.3
+
+      - name: Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Bağımlılıklar
+        run: pnpm install --frozen-lockfile
+
+      - name: Çekirdek değişiklik kapısı (test + typecheck + lint)
+        run: pnpm verify

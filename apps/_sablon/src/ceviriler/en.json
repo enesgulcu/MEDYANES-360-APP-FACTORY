@@ -19,5 +19,12 @@
     "bosListeBaslik": "No records yet",
     "bosListeAciklama": "The List component shows an EmptyState when empty.",
     "ayarlaraGit": "Settings"
+  },
+  "hata": {
+    "sinir": {
+      "baslik": "Something went wrong",
+      "aciklama": "The app encountered an unexpected error. You can try again or restart the app.",
+      "yenidenDene": "Try again"
+    }
   }
 }

@@ -46,6 +46,7 @@ export default function AnaSayfa() {
 
         <Button
           baslik={t('home.ayarlaraGit')}
+          testID="home-ayarlar"
           varyant="secondary"
           onPress={() => router.push('/ayarlar')}
         />

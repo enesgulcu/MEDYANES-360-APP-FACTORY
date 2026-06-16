@@ -19,5 +19,12 @@
     "bosListeBaslik": "Henüz kayıt yok",
     "bosListeAciklama": "Liste bileşeni boş durumda EmptyState gösterir.",
     "ayarlaraGit": "Ayarlar"
+  },
+  "hata": {
+    "sinir": {
+      "baslik": "Bir sorun oluştu",
+      "aciklama": "Uygulama beklenmeyen bir hatayla karşılaştı. Tekrar deneyebilir veya uygulamayı yeniden başlatabilirsin.",
+      "yenidenDene": "Tekrar dene"
+    }
   }
 }

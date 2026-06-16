@@ -8,8 +8,8 @@ packages:
 # Kurulum sırasında script çalıştırmasına izin verilen bağımlılıklar
 # (pnpm güvenlik gereği varsayılan olarak engeller).
 allowBuilds:
-  '@firebase/util': set this to true or false
-  protobufjs: set this to true or false
+  '@firebase/util': true
+  protobufjs: true
   unrs-resolver: true
 
 # NativeWind v5 dokümantasyonunun önerisi: lightningcss sürümü sabitlenmezse

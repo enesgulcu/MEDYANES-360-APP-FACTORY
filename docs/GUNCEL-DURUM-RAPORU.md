@@ -1,152 +1,157 @@
 # MEDYANES 360 APP FACTORY — Güncel Durum Raporu
 
-**Tarih:** 11 Haziran 2026  
-**Durum:** Kuruluş tamamlandı, fabrika çalışmaya hazır  
-**Son commit:** 5 aşamalı kurulum (6 commit), tüm doğrulamalar yeşil
+**Tarih:** 16 Haziran 2026  
+**Durum:** Fabrika güçlendirildi, pilot uygulama (alışkanlık) MVP aşamasında  
+**Son doğrulama:** `pnpm verify` yeşil (68 test, lint, typecheck)
 
 ---
 
 ## Tek cümleyle
 
-Pastane binasını inşa ettik: mutfak (çekirdek paketler), tarif defterleri (dokümanlar) ve yeni şube açmak için hazır şablon (`apps/_sablon`) hazır. Henüz hiçbir gerçek uygulama (pasta) yapılmadı — bu bilinçli bir karardı.
+Pastane binası artık sadece durmuyor — **otomatik kalite kontrolü (CI), yeni şube açma komutu ve standart süreçler** var. İlk gerçek ürün (**alışkanlık takip uygulaması**) Firebase'e bağlı ve telefonda denenmeyi bekliyor.
 
 ---
 
-## Ne kuruldu?
+## Neredeyiz?
 
-| Bölüm                   | Ne işe yarar?                                                          | Durum                   |
-| ----------------------- | ---------------------------------------------------------------------- | ----------------------- |
-| **docs/**               | Fabrikanın kalıcı hafızası: kurallar, süreçler, mağaza kontrol listesi | ✅ Hazır                |
-| **packages/** (9 paket) | Tüm uygulamaların ortak temeli: kimlik, ödeme, dil, tasarım vb.        | ✅ Mock modda, testli   |
-| **apps/\_sablon**       | Yeni uygulama açarken kopyalanacak çalışan şablon                      | ✅ Çalıştığı doğrulandı |
-| **apps/\_arsiv**        | Terk edilen uygulamaların saklandığı yer                               | ✅ Boş, hazır           |
-| **pnpm verify**         | Çekirdek değişince otomatik güvenlik kontrolü                          | ✅ Yeşil                |
-| **Git geçmişi**         | Her aşama ayrı commit — sorun olursa geri dönülebilir                  | ✅ 6 commit             |
-
-### 9 çekirdek paket (hepsi mock modda)
-
-| Paket             | Görevi                                           |
-| ----------------- | ------------------------------------------------ |
-| `cekirdek`        | Ortak tipler ve yardımcılar                      |
-| `kimlik`          | Kullanıcı girişi (varsayılan: anonim)            |
-| `odeme`           | Abonelik / paywall yönetimi                      |
-| `analitik`        | Olay takibi (Analytics)                          |
-| `loglama`         | Kullanıcı bazlı sorun kaydı                      |
-| `bildirim`        | Push bildirim altyapısı                          |
-| `dil`             | Türkçe + İngilizce, otomatik cihaz dili          |
-| `uzak-ayar`       | Uygulamayı yeniden yayınlamadan uzaktan ayarlama |
-| `tasarim-sistemi` | Buton, kart, modal vb. + tema sistemi            |
-
-**Mock mod** = dış servisler (Firebase, RevenueCat) henüz bağlı değil; uygulama taklit modda çalışıyor. Hesaplar açılınca gerçek bağlantıya geçilir, ekran kodları değişmez.
-
-### Şablon uygulamada neler var?
-
-- Örnek onboarding (2 adım) → uzaktan açılıp kapatılabilen örnek paywall
-- Ayarlar: dil seçimi, gizlilik politikası linki, hesap/veri silme
-- Karanlık mod desteği
-- Expo SDK 56 + NativeWind (Tailwind tarzı stiller)
-
----
-
-## Doğrulama (test edildi mi?)
-
-| Kontrol                  | Sonuç                 |
-| ------------------------ | --------------------- |
-| Birim testleri           | 43 test — hepsi geçti |
-| TypeScript derlemesi     | 10 proje — hatasız    |
-| Lint (kod kalitesi)      | Temiz                 |
-| Metro dev sunucusu       | Ayağa kalktı          |
-| iOS bundle derlemesi     | 3866 modül — hatasız  |
-| Android bundle derlemesi | 3957 modül — hatasız  |
-| Web statik render        | 7 ekran — hatasız     |
-
-Telefonda görsel deneme (senin yapabileceğin 2 dakikalık iş):
-
-```bash
-cd apps/_sablon
-pnpm start
+```
+[Kuruluş ✅] → [Güçlendirme ✅] → [Pilot MVP ⏳ telefon testi] → [EAS build] → [Mağaza]
 ```
 
-Expo Go uygulamasıyla QR kodu okut.
+| Aşama                | Durum | Ne anlama geliyor?                                  |
+| -------------------- | ----- | --------------------------------------------------- |
+| Fabrika iskeleti     | ✅    | 9 paket, şablon, dokümanlar                         |
+| Güvenilirlik katmanı | ✅    | CI, testler, lint, ErrorBoundary                    |
+| Pilot uygulama       | ⏳    | `apps/aliskanlik` — senin telefon testin bekleniyor |
+| Preview build        | ⏳    | Expo hesabı açılınca                                |
+| Mağaza yayını        | ⏳    | Apple/Google hesapları — yayın öncesi               |
 
 ---
 
-## Git commit geçmişi (geri dönüş noktaları)
+## Bu oturumda ne eklendi?
 
-| Commit | İçerik                                          |
-| ------ | ----------------------------------------------- |
-| 1      | Doküman sistemi (ANAYASA, KODLAMA, TASARIM, …)  |
-| 2      | Monorepo iskeleti (pnpm, ESLint, Husky, verify) |
-| 3      | 9 çekirdek paket (mock, testli, README'li)      |
-| 4      | Şablon uygulama + tasarım sistemi bileşenleri   |
-| 5      | STATUS-FACTORY.md                               |
-| 6      | Bu rapor + push                                 |
+### Güvenilirlik
+
+- **GitHub Actions:** Her kod değişikliğinde otomatik `pnpm verify`
+- **Dependabot:** Güvenlik güncellemeleri için haftalık PR
+- **68 birim testi** — çekirdek paketlerde regresyon koruması
+
+### Akıcılık (senin için)
+
+- **`pnpm new-app <isim>`** — yeni uygulama tek komutla açılır
+- **Süreç haritası** (`docs/EKOSISTEM.md`) — fikirden uygulamaya adımlar
+- **Definition of Done** (`docs/TANIM-BITTI.md`) — ne zaman "bitti" sayılır
+- **Senin görev listen** (`docs/PROJE-SAHIBI-GOREVLERI.md`) — sadece senin yapacağın işler
+
+### Adaptif yapı
+
+- **Servis modu** (`mock` / `canli`) — aynı kod, farklı ortam
+- **Fabrika fonksiyonları** — paketler tek giriş kapısından istemci üretir
+- **Ortam bazlı ödeme** — Expo Go'da mock, native build'de RevenueCat
+
+### Test altyapısı
+
+- **Maestro smoke test** — şablonda onboarding → ana ekran akışı
+- **testID'ler** — otomatik testlerin ekranları bulması için
 
 ---
 
-## SENDEN BEKLEYENLER
+## Pilot uygulama: Alışkanlık
 
-Hiçbiri acil değil. İlk gerçek uygulamaya başlarken Firebase + RevenueCat yeterli.
+| Özellik                            | Durum                |
+| ---------------------------------- | -------------------- |
+| Alışkanlık ekleme / işaretleme     | ✅                   |
+| Firebase Auth (anonim)             | ✅                   |
+| Firestore (veri saklama)           | ✅                   |
+| Remote Config (ücretsiz limit vb.) | ✅                   |
+| Paywall (mock / Expo Go)           | ✅                   |
+| Gerçek satın alma                  | ⏳ EAS build gerekir |
+| Push hatırlatma                    | ⏳                   |
 
-### 1. Firebase hesabı (ücretsiz)
+---
 
-1. `console.firebase.google.com` → Google hesabınla giriş
-2. "Proje oluştur" → Analytics'i aç
-3. Bana "Firebase hazır" de — proje kurulumunu birlikte yaparız
+## SENDEN BEKLEYENLER (sırayla)
 
-### 2. RevenueCat hesabı (ücretsiz, 2.500$/ay gelire kadar)
+### 1. Telefonda dene (5 dakika) — en önemli
 
-1. `app.revenuecat.com` → kayıt ol
-2. Şirket adı: **MEDYANES 360**
-3. Bana "RevenueCat hazır" de
+1. Bilgisayarda: `cd apps/aliskanlik` → `pnpm start`
+2. Telefonda **Expo Go** uygulamasını aç
+3. QR kodu okut
+4. Şunları dene:
+   - Yeni alışkanlık ekle
+   - Bugün işaretle
+   - Ayarlara gir, dili değiştir
+   - Paywall ekranını gör ("Sonra" ile geç)
+5. Bir sorun görürsen ekran görüntüsü + ne yaptığını yaz — agent düzeltir
 
-### 3. Apple Developer (99$/yıl — yayın öncesi, acil değil)
+### 2. Expo hesabı (ücretsiz)
 
-`developer.apple.com` → bireysel hesap. **Ödemeden önce bana haber ver** (Seviye 3 karar).
+1. `expo.dev` → kayıt ol (GitHub ile olabilir)
+2. Bana **"Expo hesabım hazır"** de
+3. Agent EAS bağlar; telefona kurulabilir preview linki alırsın (Expo Go'dan daha stabil)
 
-### 4. Google Play Developer (25$ tek sefer — yayın öncesi, acil değil)
+### 3. GitHub Actions kontrolü (1 dakika)
 
-`play.google.com/console` → kayıt. **Ödemeden önce bana haber ver** (Seviye 3 karar).
+1. GitHub repo → **Actions** sekmesi
+2. "Verify" işinin yeşil ✅ olduğunu gör
+3. Kırmızıysa bana haber ver
+
+### Zaten tamamladıkların ✅
+
+- Firebase hesabı ve proje
+- RevenueCat hesabı
+- Firestore kuralları
+
+### Yayın öncesi (acil değil)
+
+| Görev                 | Maliyet       | Ne zaman                          |
+| --------------------- | ------------- | --------------------------------- |
+| Apple Developer       | 99$/yıl       | İlk App Store gönderiminden önce  |
+| Google Play Developer | 25$ tek sefer | İlk Play Store gönderiminden önce |
+
+**Ödeme adımlarından önce bana haber ver** — onay gerekir.
 
 ---
 
 ## Aylık maliyet
 
-| Servis        | Şu an     |
-| ------------- | --------- |
-| Tüm servisler | **0$/ay** |
+| Servis                                     | Şu an     |
+| ------------------------------------------ | --------- |
+| Firebase, RevenueCat, GitHub, Expo (temel) | **0$/ay** |
 
 ---
 
 ## Sıradaki adımlar
 
-1. **Sen:** İlk uygulama fikrini anlat.
-2. **Sen:** Firebase + RevenueCat hesaplarını aç (yukarıdaki tarifle).
-3. **Agent:** Şablondan ilk uygulamayı açar, tasarım brifini sorar, tema önerir.
-4. **Agent:** Hesaplar hazır olunca mock servisleri gerçeğe bağlar.
-5. **Birlikte:** Telefonda şablonu Expo Go ile dene (istersen).
+1. **Sen:** Telefonda alışkanlık uygulamasını dene, geri bildirim ver
+2. **Sen:** Expo hesabı aç
+3. **Agent:** Test sonuçlarına göre düzeltmeler
+4. **Agent:** EAS preview build kurulumu
+5. **Birlikte:** Hatırlatma bildirimi + ilerleme grafiği kararı
 
 ---
 
-## Önemli dosyalar (nerede ne var?)
+## Önemli dosyalar
 
-| Dosya                         | Ne için?                                      |
-| ----------------------------- | --------------------------------------------- |
-| `docs/ANAYASA.md`             | Fabrikanın temel yasası — her oturumda okunur |
-| `docs/STATUS-FACTORY.md`      | Teknik detaylı fabrika durumu                 |
-| `docs/SURECLER.md`            | Yeni uygulama açma adımları                   |
-| `docs/GUNCEL-DURUM-RAPORU.md` | Bu dosya — senin için özet rapor              |
-| `apps/_sablon/`               | Yeni uygulama şablonu                         |
-| `README.md`                   | Genel tanıtım ve temel komutlar               |
-
----
-
-## Teknik ortam (bilgi amaçlı)
-
-- Node.js 22, pnpm 11
-- Expo SDK 56, React Native 0.85
-- Monorepo: `pnpm install` (kök dizinde), `pnpm verify` (kontrol)
+| Dosya                            | Ne için?                 |
+| -------------------------------- | ------------------------ |
+| `docs/ANAYASA.md`                | Fabrikanın temel yasası  |
+| `docs/EKOSISTEM.md`              | Fikirden uygulamaya akış |
+| `docs/PROJE-SAHIBI-GOREVLERI.md` | Senin yapman gerekenler  |
+| `docs/STATUS-FACTORY.md`         | Teknik detaylı durum     |
+| `apps/aliskanlik/`               | Pilot uygulama           |
+| `apps/_sablon/`                  | Yeni uygulama şablonu    |
 
 ---
 
-_Bu rapor kuruluş oturumunun kapanışında oluşturuldu. Güncel teknik detaylar için `docs/STATUS-FACTORY.md` dosyasına bak._
+## Temel komutlar (bilgi — çalıştırmana gerek yok)
+
+```bash
+pnpm verify              # tüm kontroller (agent çalıştırır)
+pnpm new-app <isim>      # yeni uygulama aç
+cd apps/aliskanlik && pnpm start   # pilot uygulamayı başlat
+```
+
+---
+
+_Bu rapor fabrika güçlendirme oturumunun kapanışında güncellendi._

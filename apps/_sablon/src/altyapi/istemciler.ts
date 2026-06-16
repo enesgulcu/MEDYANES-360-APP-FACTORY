@@ -1,32 +1,38 @@
 /**
- * ALTYAPI İSTEMCİLERİ (tekil/singleton).
- *
- * Şu an HEPSİ MOCK MODDA: Firebase ve RevenueCat hesapları bağlandığında
- * yalnızca bu dosyadaki create* çağrıları gerçek istemcilerle değiştirilecek;
- * ekran kodları arayüzler aynı kaldığı için HİÇ değişmeyecek.
+ * ALTYAPI İSTEMCİLERİ — tek giriş kapısı.
+ * Servis modu: EXPO_PUBLIC_SERVIS_MODU (mock | canli). Varsayılan mock.
+ * Canlı mod: Firebase/RevenueCat bağlandıktan sonra; ekran kodu değişmez.
  */
-import { createMockAnalitik } from '@medyanes360/analitik';
-import { createMockBildirim } from '@medyanes360/bildirim';
-import { createMockKimlik } from '@medyanes360/kimlik';
+import { createAnalitikIstemcisi } from '@medyanes360/analitik';
+import { createBildirimIstemcisi } from '@medyanes360/bildirim';
+import { createKimlikIstemcisi } from '@medyanes360/kimlik';
 import { createLogger, createMockFirestoreHedefi } from '@medyanes360/loglama';
-import { createMockOdeme, PaywallYoneticisi } from '@medyanes360/odeme';
-import { createMockUzakAyar } from '@medyanes360/uzak-ayar';
+import { createOdemeIstemcisi, PaywallYoneticisi } from '@medyanes360/odeme';
+import { createUzakAyarIstemcisi } from '@medyanes360/uzak-ayar';
 import { APP_INFO } from './appInfo';
 
-export const kimlik = createMockKimlik();
+const MOCK_URUNLER = [
+  { id: 'aylik_premium', fiyatMetni: '₺49,99', periyot: 'aylik' as const },
+  { id: 'yillik_premium', fiyatMetni: '₺399,99', periyot: 'yillik' as const },
+];
 
-export const analitik = createMockAnalitik(APP_INFO);
+export const kimlik = createKimlikIstemcisi();
+
+export const analitik = createAnalitikIstemcisi(APP_INFO);
 
 export const logger = createLogger(APP_INFO, analitik, createMockFirestoreHedefi());
 
-export const odeme = createMockOdeme();
+export const odeme = createOdemeIstemcisi({
+  apiAnahtariTanimli: false,
+  mockUrunler: MOCK_URUNLER,
+  revenueCat: { entitlementId: 'premium' },
+  mod: 'mock',
+});
 
 export const paywall = new PaywallYoneticisi(odeme);
 
-// Örnek: paywall'ın uzaktan yönetilebildiğini ilk günden göstermek için
-// mock uzak ayara örnek bir paywall yapılandırması koyuyoruz.
-export const uzakAyar = createMockUzakAyar({
+export const uzakAyar = createUzakAyarIstemcisi({
   paywall: { aktif: true, baslikAnahtari: 'paywall.baslik', oneCikanUrun: 'yillik_premium' },
 });
 
-export const bildirim = createMockBildirim();
+export const bildirim = createBildirimIstemcisi();

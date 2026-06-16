@@ -17,7 +17,7 @@ Yeni uygulama = şablonu kopyalamak + kimliklendirmek. Adımlar sırayla:
      platform, kullanıcıya gösterilecek gerekçe metni (ANAYASA §8).
    - Envanter dışı izin kodda kullanılamaz; yeni izin eklemek Seviye 2 karardır.
 3. **Şablonu kopyala**
-   - `apps/_sablon` → `apps/<uygulama-adi>` olarak kopyalanır.
+   - `pnpm new-app <uygulama-adi>` (önerilen) — veya elle `apps/_sablon` → `apps/<uygulama-adi>`.
    - `package.json` içindeki `name`, `app.json` içindeki `name`, `slug`,
      `scheme` ve bundle ID güncellenir: `com.medyanes360.<uygulamaadi>`.
    - `docs/SPEC.md`, `STATUS.md`, `KARARLAR.md` şablonları doldurulmaya başlanır.

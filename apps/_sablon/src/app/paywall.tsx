@@ -116,6 +116,7 @@ export default function Paywall() {
         />
         <Button
           baslik={t('paywall.sonra')}
+          testID="paywall-sonra"
           varyant="ghost"
           onPress={() => router.replace('/home')}
         />

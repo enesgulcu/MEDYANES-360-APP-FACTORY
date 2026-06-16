@@ -11,6 +11,8 @@ export interface ButtonProps {
   yukleniyor?: boolean;
   devreDisi?: boolean;
   style?: ViewStyle;
+  /** E2E testleri (Maestro) için tanımlayıcı. */
+  testID?: string;
 }
 
 export function Button({
@@ -20,6 +22,7 @@ export function Button({
   yukleniyor = false,
   devreDisi = false,
   style,
+  testID,
 }: ButtonProps) {
   const { renkler, tema } = useTema();
 
@@ -41,6 +44,7 @@ export function Button({
 
   return (
     <Pressable
+      testID={testID}
       accessibilityRole="button"
       accessibilityState={{ disabled: pasif, busy: yukleniyor }}
       onPress={onPress}

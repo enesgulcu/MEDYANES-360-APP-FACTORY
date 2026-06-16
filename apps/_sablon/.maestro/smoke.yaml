@@ -1,0 +1,22 @@
+# Şablon uygulama smoke testi: onboarding → paywall atla → ana sayfa → ayarlar → dil.
+# Çalıştırma: emulator/simulator açık + `pnpm e2e:smoke` (apps/_sablon dizininde)
+# veya: maestro test .maestro/smoke.yaml
+appId: com.medyanes360.uygulamaadi
+---
+- launchApp
+- tapOn:
+    id: onboarding-devam
+- tapOn:
+    id: onboarding-basla
+- tapOn:
+    id: paywall-sonra
+- assertVisible:
+    id: home-ayarlar
+- tapOn:
+    id: home-ayarlar
+- tapOn:
+    id: ayarlar-dil-en
+- tapOn:
+    id: ayarlar-geri
+- assertVisible:
+    id: home-ayarlar
