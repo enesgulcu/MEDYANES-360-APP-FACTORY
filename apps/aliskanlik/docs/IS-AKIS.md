@@ -113,5 +113,5 @@ Son güncelleme: 2026-06-16
 - `docs/ANAYASA.md`, `SURECLER.md`, `AGENT-OTURUM-CHECKLIST.md` — süreç kuralları
 - `scripts/yeni-uygulama.mjs` — new-app ile IS-AKIS kopyalanır
 
-**Commit:** `bb65a67`
+**Commit:** `2391f00`
 **Durum:** ✅ tamamlandı

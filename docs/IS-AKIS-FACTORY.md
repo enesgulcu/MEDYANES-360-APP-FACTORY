@@ -74,5 +74,5 @@ Son güncelleme: 2026-06-16
 - `docs/SURECLER.md`, `AGENT-OTURUM-CHECKLIST.md`, `.cursor/rules/` — süreç güncellemesi
 - `scripts/yeni-uygulama.mjs` — yeni uygulamalara IS-AKIS kopyası
 
-**Commit:** `bb65a67`
+**Commit:** `2391f00`
 **Durum:** ✅ tamamlandı
