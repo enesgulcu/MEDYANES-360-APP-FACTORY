@@ -1,0 +1,75 @@
+{
+  "uygulamaGorunenAd": "Alışkanlık",
+  "viewport": { "width": 390, "height": 844 },
+  "akislar": [
+    {
+      "id": "onboarding-adim-1",
+      "baslik": "Karşılama — 1. adım",
+      "aciklama": "Uygulama ilk açıldığında görünen tanıtım.",
+      "adimlar": [
+        { "tur": "git", "yol": "/onboarding" },
+        { "tur": "bekle", "ms": 800 },
+        { "tur": "ekranGoruntusu" }
+      ]
+    },
+    {
+      "id": "onboarding-adim-2",
+      "baslik": "Karşılama — 2. adım",
+      "adimlar": [
+        { "tur": "git", "yol": "/onboarding" },
+        { "tur": "tikla", "testID": "onboarding-devam" },
+        { "tur": "bekle", "ms": 400 },
+        { "tur": "ekranGoruntusu" }
+      ]
+    },
+    {
+      "id": "paywall",
+      "baslik": "Üyelik / Paywall",
+      "aciklama": "Alışkanlık Pro abonelik teklifi ve fiyatlar.",
+      "adimlar": [
+        { "tur": "git", "yol": "/paywall" },
+        { "tur": "bekle", "ms": 1500 },
+        { "tur": "ekranGoruntusu" }
+      ]
+    },
+    {
+      "id": "anasayfa",
+      "baslik": "Ana sayfa",
+      "aciklama": "Alışkanlık listesi (boş veya örnek veri ile).",
+      "adimlar": [
+        { "tur": "git", "yol": "/home" },
+        { "tur": "bekle", "ms": 2500 },
+        { "tur": "ekranGoruntusu" }
+      ]
+    },
+    {
+      "id": "aliskanlik-ekle",
+      "baslik": "Alışkanlık ekleme formu",
+      "adimlar": [
+        { "tur": "git", "yol": "/ekle" },
+        { "tur": "bekle", "ms": 800 },
+        { "tur": "ekranGoruntusu" }
+      ]
+    },
+    {
+      "id": "ayarlar",
+      "baslik": "Ayarlar",
+      "aciklama": "Dil, tema, abonelik yönetimi ve hesap silme.",
+      "adimlar": [
+        { "tur": "git", "yol": "/ayarlar" },
+        { "tur": "bekle", "ms": 800 },
+        { "tur": "ekranGoruntusu" }
+      ]
+    },
+    {
+      "id": "ayarlar-koyu-tema",
+      "baslik": "Ayarlar — koyu tema",
+      "adimlar": [
+        { "tur": "git", "yol": "/ayarlar" },
+        { "tur": "tikla", "testID": "ayarlar-tema-dark" },
+        { "tur": "bekle", "ms": 500 },
+        { "tur": "ekranGoruntusu" }
+      ]
+    }
+  ]
+}

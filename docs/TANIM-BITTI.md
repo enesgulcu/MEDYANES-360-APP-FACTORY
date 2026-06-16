@@ -13,6 +13,7 @@
 - [ ] Hata sessiz yutulmuyor; anlamlı mesaj ve/veya loglama kaydı var.
 - [ ] `pnpm verify` yeşil (test + typecheck + lint).
 - [ ] İlgili `docs/IS-AKIS.md` veya `docs/IS-AKIS-FACTORY.md` kaydı eklendi/güncellendi.
+- [ ] Ekran görünümü değiştiyse `docs/onizleme/VITRIN.md` ve görseller güncellendi.
 - [ ] İlgili `docs/STATUS.md` güncellendi.
 - [ ] Seviye 1 kararlar `docs/KARARLAR.md`'ye işlendi.
 - [ ] Anlamlı commit atıldı ve **GitHub'a push edildi**.

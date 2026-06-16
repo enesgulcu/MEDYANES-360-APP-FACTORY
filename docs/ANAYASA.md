@@ -82,6 +82,7 @@ Her uygulamanın kendi `docs/` klasörü vardır:
 - `SPEC.md` — ürün tanımı (ne yapıyoruz, kimin için).
 - `STATUS.md` — mevcut durum, sıradaki adımlar, proje sahibinden bekleyen görevler.
 - `IS-AKIS.md` — proje sahibi istekleri ve yapılan işlerin kronolojik günlüğü (tarih, prompt, önce/sonra, teknik özet).
+- `onizleme/VITRIN.md` — ekran görüntüleri vitrini (proje sahibi görsel inceleme; agent günceller).
 - `KARARLAR.md` — tarihli kararlar ve gerekçeleri.
 
 Fabrika geneli iş akışı: `docs/IS-AKIS-FACTORY.md`. Kayıt formatı: `docs/IS-AKIS-SABLONU.md`.

@@ -1,0 +1,55 @@
+{
+  "uygulama": "aliskanlik",
+  "uygulamaGorunenAd": "Alışkanlık",
+  "guncellemeTarihi": "16.06.2026 11:56:29",
+  "commit": "cc224f4",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "not": "Web onizlemesi; native gorunumle cok yakin ama birebir ayni olmayabilir.",
+  "ekranlar": [
+    {
+      "id": "onboarding-adim-1",
+      "baslik": "Karşılama — 1. adım",
+      "aciklama": "Uygulama ilk açıldığında görünen tanıtım.",
+      "dosya": "gorseller/onboarding-adim-1.png"
+    },
+    {
+      "id": "onboarding-adim-2",
+      "baslik": "Karşılama — 2. adım",
+      "aciklama": null,
+      "dosya": "gorseller/onboarding-adim-2.png"
+    },
+    {
+      "id": "paywall",
+      "baslik": "Üyelik / Paywall",
+      "aciklama": "Alışkanlık Pro abonelik teklifi ve fiyatlar.",
+      "dosya": "gorseller/paywall.png"
+    },
+    {
+      "id": "anasayfa",
+      "baslik": "Ana sayfa",
+      "aciklama": "Alışkanlık listesi (boş veya örnek veri ile).",
+      "dosya": "gorseller/anasayfa.png"
+    },
+    {
+      "id": "aliskanlik-ekle",
+      "baslik": "Alışkanlık ekleme formu",
+      "aciklama": null,
+      "dosya": "gorseller/aliskanlik-ekle.png"
+    },
+    {
+      "id": "ayarlar",
+      "baslik": "Ayarlar",
+      "aciklama": "Dil, tema, abonelik yönetimi ve hesap silme.",
+      "dosya": "gorseller/ayarlar.png"
+    },
+    {
+      "id": "ayarlar-koyu-tema",
+      "baslik": "Ayarlar — koyu tema",
+      "aciklama": null,
+      "dosya": "gorseller/ayarlar-koyu-tema.png"
+    }
+  ]
+}

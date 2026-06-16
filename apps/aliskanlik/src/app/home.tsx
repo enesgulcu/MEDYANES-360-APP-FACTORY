@@ -122,10 +122,16 @@ export default function AnaSayfa() {
         />
 
         <View style={{ padding: tema.bosluk.md, gap: tema.bosluk.sm }}>
-          <Button baslik={t('home.aliskanlikEkle')} varyant="primary" onPress={ekleBasildi} />
+          <Button
+            baslik={t('home.aliskanlikEkle')}
+            varyant="primary"
+            testID="home-ekle"
+            onPress={ekleBasildi}
+          />
           <Button
             baslik={t('home.ayarlaraGit')}
             varyant="secondary"
+            testID="home-ayarlar"
             onPress={() => router.push('/ayarlar')}
           />
         </View>

@@ -1,0 +1,66 @@
+{
+  "uygulamaGorunenAd": "Şablon Uygulama",
+  "viewport": { "width": 390, "height": 844 },
+  "akislar": [
+    {
+      "id": "onboarding-adim-1",
+      "baslik": "Karşılama — 1. adım",
+      "aciklama": "İlk açılışta kullanıcının gördüğü tanıtım ekranı.",
+      "adimlar": [
+        { "tur": "git", "yol": "/onboarding" },
+        { "tur": "bekle", "ms": 800 },
+        { "tur": "ekranGoruntusu" }
+      ]
+    },
+    {
+      "id": "onboarding-adim-2",
+      "baslik": "Karşılama — 2. adım",
+      "adimlar": [
+        { "tur": "git", "yol": "/onboarding" },
+        { "tur": "tikla", "testID": "onboarding-devam" },
+        { "tur": "bekle", "ms": 400 },
+        { "tur": "ekranGoruntusu" }
+      ]
+    },
+    {
+      "id": "paywall",
+      "baslik": "Üyelik / Paywall",
+      "aciklama": "Premium teklif ekranı. Fiyatlar ve planlar burada.",
+      "adimlar": [
+        { "tur": "git", "yol": "/paywall" },
+        { "tur": "bekle", "ms": 1200 },
+        { "tur": "ekranGoruntusu" }
+      ]
+    },
+    {
+      "id": "anasayfa",
+      "baslik": "Ana sayfa",
+      "aciklama": "Onboarding sonrası ana ekran vitrini.",
+      "adimlar": [
+        { "tur": "git", "yol": "/home" },
+        { "tur": "bekle", "ms": 800 },
+        { "tur": "ekranGoruntusu" }
+      ]
+    },
+    {
+      "id": "ayarlar",
+      "baslik": "Ayarlar",
+      "aciklama": "Dil, tema ve hesap işlemleri.",
+      "adimlar": [
+        { "tur": "git", "yol": "/ayarlar" },
+        { "tur": "bekle", "ms": 800 },
+        { "tur": "ekranGoruntusu" }
+      ]
+    },
+    {
+      "id": "ayarlar-koyu-tema",
+      "baslik": "Ayarlar — koyu tema seçili",
+      "adimlar": [
+        { "tur": "git", "yol": "/ayarlar" },
+        { "tur": "tikla", "testID": "ayarlar-tema-dark" },
+        { "tur": "bekle", "ms": 500 },
+        { "tur": "ekranGoruntusu" }
+      ]
+    }
+  ]
+}

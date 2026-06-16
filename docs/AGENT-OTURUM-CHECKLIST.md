@@ -18,6 +18,7 @@
 - [ ] Seviye 1 kararlar `KARARLAR.md`'ye yazıldı.
 - [ ] Kapsam dağıtılmadı; yalnızca istenen iş yapıldı.
 - [ ] **Her tamamlanan proje sahibi isteğinde** `IS-AKIS.md` kaydı eklendi (en alta).
+- [ ] **Ekran görünümü değiştiyse** `pnpm onizleme <uygulama>` çalıştırıldı; `VITRIN.md` güncellendi.
 
 ## Oturum sonu
 

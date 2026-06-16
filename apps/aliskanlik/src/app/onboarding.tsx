@@ -55,13 +55,14 @@ export default function Onboarding() {
         {adim === 1 ? (
           <Button
             baslik={t('ortak.devam')}
+            testID="onboarding-devam"
             onPress={() => {
               logger.log('screen_view', { ekran: 'onboarding_adim2' });
               setAdim(2);
             }}
           />
         ) : (
-          <Button baslik={t('onboarding.basla')} onPress={bitir} />
+          <Button baslik={t('onboarding.basla')} testID="onboarding-basla" onPress={bitir} />
         )}
       </View>
     </SafeAreaView>

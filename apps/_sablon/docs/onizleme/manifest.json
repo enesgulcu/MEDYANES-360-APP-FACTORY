@@ -1,0 +1,49 @@
+{
+  "uygulama": "_sablon",
+  "uygulamaGorunenAd": "Şablon Uygulama",
+  "guncellemeTarihi": "16.06.2026 11:54:04",
+  "commit": "cc224f4",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "not": "Web onizlemesi; native gorunumle cok yakin ama birebir ayni olmayabilir.",
+  "ekranlar": [
+    {
+      "id": "onboarding-adim-1",
+      "baslik": "Karşılama — 1. adım",
+      "aciklama": "İlk açılışta kullanıcının gördüğü tanıtım ekranı.",
+      "dosya": "gorseller/onboarding-adim-1.png"
+    },
+    {
+      "id": "onboarding-adim-2",
+      "baslik": "Karşılama — 2. adım",
+      "aciklama": null,
+      "dosya": "gorseller/onboarding-adim-2.png"
+    },
+    {
+      "id": "paywall",
+      "baslik": "Üyelik / Paywall",
+      "aciklama": "Premium teklif ekranı. Fiyatlar ve planlar burada.",
+      "dosya": "gorseller/paywall.png"
+    },
+    {
+      "id": "anasayfa",
+      "baslik": "Ana sayfa",
+      "aciklama": "Onboarding sonrası ana ekran vitrini.",
+      "dosya": "gorseller/anasayfa.png"
+    },
+    {
+      "id": "ayarlar",
+      "baslik": "Ayarlar",
+      "aciklama": "Dil, tema ve hesap işlemleri.",
+      "dosya": "gorseller/ayarlar.png"
+    },
+    {
+      "id": "ayarlar-koyu-tema",
+      "baslik": "Ayarlar — koyu tema seçili",
+      "aciklama": null,
+      "dosya": "gorseller/ayarlar-koyu-tema.png"
+    }
+  ]
+}

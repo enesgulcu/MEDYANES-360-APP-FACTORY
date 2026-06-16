@@ -56,6 +56,7 @@ export default tseslint.config(
       '**/metro.config.js',
       '**/tailwind.config.js',
       '**/jest.config.js',
+      '**/.onizleme-dist/**',
     ],
   },
   js.configs.recommended,
@@ -84,6 +85,7 @@ export default tseslint.config(
       globals: {
         console: 'readonly',
         process: 'readonly',
+        setTimeout: 'readonly',
       },
     },
   },

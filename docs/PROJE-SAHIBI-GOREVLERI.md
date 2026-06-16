@@ -74,3 +74,11 @@ Teknik komut çalıştırmana gerek yok.
 Her uygulamanın `apps/<uygulama>/docs/IS-AKIS.md` dosyasında:
 ne istediğin, ne değiştiği ve hangi tarihte yapıldığı kronolojik olarak durur.
 Fabrika geneli işler: `docs/IS-AKIS-FACTORY.md`.
+
+## Görsel vitrin (ekran inceleme)
+
+Telefonda gezmeden ekranları görmek için:
+
+`apps/<uygulama>/docs/onizleme/VITRIN.md`
+
+Detaylı rehber: `docs/GORSEL-VITRIN.md`. Terminal gerekmez; GitHub'da dosyayı açman yeterli.

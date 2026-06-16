@@ -18,3 +18,4 @@ alwaysApply: true
 6. Karar protokolü (ANAYASA §6): Seviye 1 → KARARLAR; 2/3 → onay bekle.
 7. Yeni uygulama: `pnpm new-app <ad>` — elle kopyalama yapma.
 8. Özellik isteği: `docs/OZELLIK-ISTEGI-SABLONU.md` doldur, onay al.
+9. Ekran görünümü değiştiyse: `pnpm onizleme <uygulama>` + `VITRIN.md` güncelle (`docs/GORSEL-VITRIN.md`).

@@ -22,17 +22,18 @@ Son güncelleme: 2026-06-16
 
 ## Yeni eklenen fabrika yetenekleri (2026-06-16)
 
-| Yetenek                         | Açıklama                                                                       |
-| ------------------------------- | ------------------------------------------------------------------------------ |
-| GitHub Actions `Verify`         | Her push/PR'da `pnpm verify`                                                   |
-| Dependabot                      | Haftalık bağımlılık güncelleme PR'ları                                         |
-| `pnpm new-app <ad>`             | Şablondan yeni uygulama açma                                                   |
-| Servis modu (`mock` \| `canli`) | Paket fabrikaları; canlı modda yapılandırma eksikse anlamlı hata               |
-| Maestro smoke                   | `apps/_sablon` — onboarding → home akışı                                       |
-| Süreç dokümanları               | `TANIM-BITTI`, `EKOSISTEM`, `AGENT-OTURUM-CHECKLIST`, `PROJE-SAHIBI-GOREVLERI` |
-| İş akışı günlüğü (IS-AKIS)      | Her istekte kayıt; uygulama + fabrika dosyaları                                |
-| Firebase şablonları             | `templates/firebase/` — deny-by-default Firestore kuralları                    |
-| ErrorBoundary                   | Şablonda i18n destekli hata sınırı                                             |
+| Yetenek                         | Açıklama                                                                         |
+| ------------------------------- | -------------------------------------------------------------------------------- |
+| GitHub Actions `Verify`         | Her push/PR'da `pnpm verify`                                                     |
+| Dependabot                      | Haftalık bağımlılık güncelleme PR'ları                                           |
+| `pnpm new-app <ad>`             | Şablondan yeni uygulama açma                                                     |
+| Servis modu (`mock` \| `canli`) | Paket fabrikaları; canlı modda yapılandırma eksikse anlamlı hata                 |
+| Maestro smoke                   | `apps/_sablon` — onboarding → home akışı                                         |
+| Süreç dokümanları               | `TANIM-BITTI`, `EKOSISTEM`, `AGENT-OTURUM-CHECKLIST`, `PROJE-SAHIBI-GOREVLERI`   |
+| İş akışı günlüğü (IS-AKIS)      | Her istekte kayıt; uygulama + fabrika dosyaları                                  |
+| Görsel vitrin (`onizleme/`)     | Ekran PNG + VITRIN.md; proje sahibi GitHub'dan inceler (`docs/GORSEL-VITRIN.md`) |
+| Firebase şablonları             | `templates/firebase/` — deny-by-default Firestore kuralları                      |
+| ErrorBoundary                   | Şablonda i18n destekli hata sınırı                                               |
 
 ## Mock → gerçek geçiş (pilot: aliskanlik)
 

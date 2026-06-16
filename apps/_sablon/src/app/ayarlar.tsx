@@ -93,6 +93,7 @@ export default function Ayarlar() {
             {TEMA_SECENEKLERI.map((secenek) => (
               <Button
                 key={secenek}
+                testID={`ayarlar-tema-${secenek}`}
                 baslik={t(TEMA_CEVIRI_ANAHTARLARI[secenek])}
                 varyant={temaModu === secenek ? 'primary' : 'secondary'}
                 onPress={() => temaModuAyarla(secenek)}

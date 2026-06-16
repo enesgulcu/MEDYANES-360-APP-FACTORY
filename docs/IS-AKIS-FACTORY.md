@@ -74,5 +74,27 @@ Son güncelleme: 2026-06-16
 - `docs/SURECLER.md`, `AGENT-OTURUM-CHECKLIST.md`, `.cursor/rules/` — süreç güncellemesi
 - `scripts/yeni-uygulama.mjs` — yeni uygulamalara IS-AKIS kopyası
 
-**Commit:** `2391f00`
+**Commit:** _henüz yok_
+**Durum:** ✅ tamamlandı
+
+---
+
+## 2026-06-16 12:00 — Görsel vitrin (ekran önizleme) sistemi
+
+**İstek (proje sahibi):**
+
+> Geliştirilen sayfaların ekran görüntülerini uygulama klasöründe topla; telefonda gezmeden görsel değerlendirme yapabileyim.
+
+**Önce → Sonra (sade):**
+
+- **Önce:** Değişiklikleri görmek için Expo Go ile tek tek gezmek gerekiyordu.
+- **Sonra:** `docs/onizleme/VITRIN.md` — GitHub'da tüm ekranlar tek sayfada; agent otomatik günceller.
+
+**Teknik müdahale:**
+
+- `scripts/ekran-onizleme.mjs` + `pnpm onizleme <uygulama>`
+- `apps/*/docs/onizleme/` — görseller + manifest + VITRIN.md
+- `docs/GORSEL-VITRIN.md` — proje sahibi rehberi
+
+**Commit:** _henüz yok_
 **Durum:** ✅ tamamlandı

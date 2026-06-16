@@ -78,8 +78,10 @@ dosyaGuncelle('docs/IS-AKIS.md', (s) => {
   const bugun = new Date().toISOString().slice(0, 10);
   return s.replace(/\[Uygulama Adı\]/g, gorunenAd).replace(/YYYY-AA-GG/g, bugun);
 });
+dosyaGuncelle('docs/onizleme/VITRIN.md', (s) => s.replace(/\[Uygulama Adı\]/g, gorunenAd));
+dosyaGuncelle('docs/onizleme/ekranlar.json', (s) => s.replace(/Şablon Uygulama/g, gorunenAd));
 
-mkdirSync(join(hedef, 'docs'), { recursive: true });
+mkdirSync(join(hedef, 'docs', 'onizleme', 'gorseller'), { recursive: true });
 
 console.log('');
 console.log('Tamamlandi.');
