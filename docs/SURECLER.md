@@ -20,7 +20,7 @@ Yeni uygulama = şablonu kopyalamak + kimliklendirmek. Adımlar sırayla:
    - `pnpm new-app <uygulama-adi>` (önerilen) — veya elle `apps/_sablon` → `apps/<uygulama-adi>`.
    - `package.json` içindeki `name`, `app.json` içindeki `name`, `slug`,
      `scheme` ve bundle ID güncellenir: `com.medyanes360.<uygulamaadi>`.
-   - `docs/SPEC.md`, `STATUS.md`, `KARARLAR.md` şablonları doldurulmaya başlanır.
+   - `docs/SPEC.md`, `STATUS.md`, `KARARLAR.md`, `IS-AKIS.md` şablonları doldurulmaya başlanır.
 4. **Tasarım brifi**
    - TASARIM.md'deki brif soruları proje sahibine sorulur.
    - Tema önerileri sunulur (Seviye 2), onaylanan tema uygulanır.
@@ -53,21 +53,26 @@ Yeni uygulama = şablonu kopyalamak + kimliklendirmek. Adımlar sırayla:
 1. `docs/ANAYASA.md` okunur.
 2. Üzerinde çalışılan uygulamanın `docs/STATUS.md` dosyası okunur
    (fabrika geneli iş ise `docs/STATUS-FACTORY.md`).
-3. STATUS'taki "sıradaki adımlar" ve "bekleyen görevler" gözden geçirilir.
+3. Aynı uygulamanın `docs/IS-AKIS.md` (veya fabrika işi ise `docs/IS-AKIS-FACTORY.md`)
+   son kayıtları okunur — önceki isteklerin bağlamı için.
+4. STATUS'taki "sıradaki adımlar" ve "bekleyen görevler" gözden geçirilir.
 
 ### Oturum sırasında
 
 - Seviye 1 kararlar `KARARLAR.md`'ye tarihli ve gerekçeli işlenir.
+- **Her tamamlanan proje sahibi isteğinde** `IS-AKIS.md`'ye kayıt eklenir
+  (format: `docs/IS-AKIS-SABLONU.md`; en yeni kayıt en altta).
 - Seviye 2/3 konular biriktirilmez; ortaya çıktığında proje sahibine sorulur.
 
 ### Oturum sonu (istisnasız)
 
 1. İlgili `STATUS.md` güncellenir: ne yapıldı, mevcut durum, sıradaki adımlar,
    proje sahibinden bekleyenler.
-2. Çekirdekte (`packages/`) değişiklik yapıldıysa `pnpm verify` koşulur;
+2. `IS-AKIS` kayıtlarındaki commit alanları push sonrası hash ile güncellenir.
+3. Çekirdekte (`packages/`) değişiklik yapıldıysa `pnpm verify` koşulur;
    kırmızıysa oturum bitmiş sayılmaz.
-3. Anlamlı bir bütün tamamlandıysa git commit atılır (Türkçe, açıklayıcı mesaj).
-4. **Commit'ler GitHub'a push edilir.** Push'suz oturum kapanmış sayılmaz;
+4. Anlamlı bir bütün tamamlandıysa git commit atılır (Türkçe, açıklayıcı mesaj).
+5. **Commit'ler GitHub'a push edilir.** Push'suz oturum kapanmış sayılmaz;
    repo her zaman güncel kalmalıdır.
 
 ## 3. Çekirdek (packages/) değişiklik süreci

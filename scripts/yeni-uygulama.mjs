@@ -74,6 +74,10 @@ dosyaGuncelle('eas.json', (s) =>
 dosyaGuncelle('docs/SPEC.md', (s) => s.replace(/\[Uygulama Adı\]/g, gorunenAd));
 dosyaGuncelle('docs/STATUS.md', (s) => s.replace(/\[Uygulama Adı\]/g, gorunenAd));
 dosyaGuncelle('docs/KARARLAR.md', (s) => s.replace(/\[Uygulama Adı\]/g, gorunenAd));
+dosyaGuncelle('docs/IS-AKIS.md', (s) => {
+  const bugun = new Date().toISOString().slice(0, 10);
+  return s.replace(/\[Uygulama Adı\]/g, gorunenAd).replace(/YYYY-AA-GG/g, bugun);
+});
 
 mkdirSync(join(hedef, 'docs'), { recursive: true });
 
@@ -84,6 +88,7 @@ console.log(`  Bundle ID: ${bundleId}`);
 console.log('');
 console.log('Siradaki adimlar:');
 console.log('  1. apps/' + ad + '/docs/SPEC.md doldur');
-console.log('  2. pnpm install');
-console.log('  3. pnpm verify');
-console.log('  4. cd apps/' + ad + ' && pnpm start');
+console.log('  2. apps/' + ad + '/docs/IS-AKIS.md — ilk kayit zaten var; yeni isteklerde guncelle');
+console.log('  3. pnpm install');
+console.log('  4. pnpm verify');
+console.log('  5. cd apps/' + ad + ' && pnpm start');

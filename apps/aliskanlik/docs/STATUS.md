@@ -2,12 +2,14 @@
 
 > Her çalışma oturumunun SONUNDA güncellenir. İstisnasız. (ANAYASA §5)
 
-Son güncelleme: 2026-06-11
+Son güncelleme: 2026-06-16
 
 ## Mevcut durum
 
 **MVP Aşama 1 tamamlandı.** Expo Go / web ile alışkanlık ekleme + işaretleme hazır.
 Konsol hataları (RC, Remote Config, AsyncStorage) çekirdekte giderildi — telefon testi bekleniyor.
+
+İş geçmişi (her istek kayıtlı): `docs/IS-AKIS.md`
 
 ## Mock → gerçek geçiş durumu
 

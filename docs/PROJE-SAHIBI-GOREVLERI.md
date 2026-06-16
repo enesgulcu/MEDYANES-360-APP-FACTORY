@@ -67,3 +67,10 @@ Teknik komut çalıştırmana gerek yok.
 - `pnpm verify`, test, lint
 - Git commit / push (agent yapar)
 - Paket seçimi, mimari kararlar (Seviye 1 — agent alır)
+- IS-AKIS günlüğünü elle yazmak (agent her isteği kaydeder)
+
+## İş akışını takip etmek (istersen)
+
+Her uygulamanın `apps/<uygulama>/docs/IS-AKIS.md` dosyasında:
+ne istediğin, ne değiştiği ve hangi tarihte yapıldığı kronolojik olarak durur.
+Fabrika geneli işler: `docs/IS-AKIS-FACTORY.md`.

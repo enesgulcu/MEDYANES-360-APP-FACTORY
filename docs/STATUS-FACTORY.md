@@ -30,6 +30,7 @@ Son güncelleme: 2026-06-16
 | Servis modu (`mock` \| `canli`) | Paket fabrikaları; canlı modda yapılandırma eksikse anlamlı hata               |
 | Maestro smoke                   | `apps/_sablon` — onboarding → home akışı                                       |
 | Süreç dokümanları               | `TANIM-BITTI`, `EKOSISTEM`, `AGENT-OTURUM-CHECKLIST`, `PROJE-SAHIBI-GOREVLERI` |
+| İş akışı günlüğü (IS-AKIS)      | Her istekte kayıt; uygulama + fabrika dosyaları                                |
 | Firebase şablonları             | `templates/firebase/` — deny-by-default Firestore kuralları                    |
 | ErrorBoundary                   | Şablonda i18n destekli hata sınırı                                             |
 
@@ -72,6 +73,7 @@ Son güncelleme: 2026-06-16
 
 ## Oturum geçmişi
 
+- **2026-06-16 — IS-AKIS iş akışı kayıt sistemi:** Her istekte kronolojik günlük; şablon, süreç kuralları, aliskanlik geriye dönük kayıt.
 - **2026-06-16 — Fabrika güçlendirme:** CI/CD, servis modu, fabrika pattern, new-app script, Maestro, ErrorBoundary, süreç dokümanları, verify yeşil.
 - **2026-06-11 — Expo Go stabilizasyon:** Ortam bazlı ödeme, RC/Remote Config/AsyncStorage düzeltmeleri.
 - **2026-06-11 — MVP Aşama 1:** Firebase gerçek bağlantı, tema A, alışkanlık listesi/formu.

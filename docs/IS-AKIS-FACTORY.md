@@ -1,0 +1,78 @@
+# İŞ AKIŞI — Fabrika Geneli
+
+> Fabrika çapındaki işlerin kronolojik günlüğü (çekirdek, CI, doküman, süreç).
+> Uygulama özel işler → `apps/<uygulama>/docs/IS-AKIS.md`
+> Format: `docs/IS-AKIS-SABLONU.md`
+
+Son güncelleme: 2026-06-16
+
+---
+
+## 2026-06-11 18:00 — Fabrika kuruluşu (Aşama 0–5)
+
+**İstek (proje sahibi):**
+
+> MEDYANES 360 App Factory monoreposunu kur; çekirdek paketler, şablon, doküman sistemi.
+
+**Önce → Sonra (sade):**
+
+- **Önce:** Boş veya başlangıç deposu.
+- **Sonra:** 9 çekirdek paket, `apps/_sablon`, ANAYASA/KODLAMA/TASARIM, `pnpm verify` yeşil.
+
+**Teknik müdahale:**
+
+- `packages/*` — 9 mock paket
+- `apps/_sablon` — Expo SDK 56 şablon uygulama
+- `docs/` — anayasa ve süreç dokümanları
+- `.cursor/rules/` — oturum kuralları
+
+**Commit:** `6b78997` (kuruluş serisi)
+**Durum:** ✅ tamamlandı
+
+---
+
+## 2026-06-16 15:00 — Fabrika güçlendirme (CI, süreç, servis modu)
+
+**İstek (proje sahibi):**
+
+> Tüm tespitleri uygula; sistem güvenilir, akıcı, adaptive olsun; kontrol sende.
+
+**Önce → Sonra (sade):**
+
+- **Önce:** Manuel verify; oturum sonu özet; yeni uygulama elle kopyalanıyordu.
+- **Sonra:** GitHub Actions CI, `pnpm new-app`, servis modu, Maestro smoke, ErrorBoundary, süreç dokümanları.
+
+**Teknik müdahale:**
+
+- `.github/workflows/verify.yml` — otomatik doğrulama
+- `packages/cekirdek/src/servis-modu.ts` — mock/canlı mod
+- `packages/*/src/fabrika.ts` — tek giriş kapısı istemcileri
+- `scripts/yeni-uygulama.mjs` — `pnpm new-app`
+- `apps/_sablon/.maestro/` — smoke E2E
+- `docs/TANIM-BITTI.md`, `EKOSISTEM.md`, `AGENT-OTURUM-CHECKLIST.md` vb.
+
+**Commit:** `d7152fa`
+**Durum:** ✅ tamamlandı
+
+---
+
+## 2026-06-16 16:30 — İş akışı kayıt sistemi
+
+**İstek (proje sahibi):**
+
+> Her uygulama geliştirirken yapay zekaya verilen komutların tarih, prompt ve değişiklik özetiyle takip edildiği iş akış günlüğü entegre et.
+
+**Önce → Sonra (sade):**
+
+- **Önce:** Yalnızca oturum sonu STATUS özeti; istek bazlı kronolojik kayıt yoktu.
+- **Sonra:** Her uygulamada `IS-AKIS.md`; fabrika işleri için `IS-AKIS-FACTORY.md`; agent her iş bitince kayıt açar.
+
+**Teknik müdahale:**
+
+- `docs/IS-AKIS-SABLONU.md` — kayıt formatı
+- `apps/_sablon/docs/IS-AKIS.md` — şablon
+- `docs/SURECLER.md`, `AGENT-OTURUM-CHECKLIST.md`, `.cursor/rules/` — süreç güncellemesi
+- `scripts/yeni-uygulama.mjs` — yeni uygulamalara IS-AKIS kopyası
+
+**Commit:** `bb65a67`
+**Durum:** ✅ tamamlandı

@@ -12,6 +12,7 @@
 - [ ] Dış veri (API, Remote Config, form) Zod ile doğrulanıyor.
 - [ ] Hata sessiz yutulmuyor; anlamlı mesaj ve/veya loglama kaydı var.
 - [ ] `pnpm verify` yeşil (test + typecheck + lint).
+- [ ] İlgili `docs/IS-AKIS.md` veya `docs/IS-AKIS-FACTORY.md` kaydı eklendi/güncellendi.
 - [ ] İlgili `docs/STATUS.md` güncellendi.
 - [ ] Seviye 1 kararlar `docs/KARARLAR.md`'ye işlendi.
 - [ ] Anlamlı commit atıldı ve **GitHub'a push edildi**.
@@ -31,5 +32,6 @@
 ## Oturum bitti sayılması için
 
 - [ ] `docs/STATUS.md` veya `docs/STATUS-FACTORY.md` güncellendi.
+- [ ] Oturumdaki tüm istekler `IS-AKIS` dosyasına işlendi; commit hash'leri yazıldı.
 - [ ] `pnpm verify` koşuldu (çekirdek değişikliği varsa zorunlu).
 - [ ] Değişiklikler commit + **push** edildi (push'suz oturum bitmiş sayılmaz).

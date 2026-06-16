@@ -43,7 +43,7 @@ pnpm lint             # lint
 
 - Uygulamalar birbirini göremez; çekirdek uygulamaları göremez (apps → packages, tek yön).
 - `packages/` değişikliği `pnpm verify` yeşil olmadan kabul edilmez.
-- Her oturum `docs/ANAYASA.md` + ilgili `STATUS.md` okunarak başlar,
-  STATUS güncellenerek biter.
+- Her oturum `docs/ANAYASA.md` + ilgili `STATUS.md` + `IS-AKIS.md` okunarak başlar;
+  her istek IS-AKIS'e yazılır, STATUS oturum sonunda güncellenir.
 
 Detaylar: [docs/ANAYASA.md](docs/ANAYASA.md)

@@ -38,5 +38,10 @@
 
 ### Proje sahibi onayı
 
-- [ ] Onaylandı — uygulamaya geç
+- [ ] Onaylandı — uygulamaya geç (onay sonrası ilk `IS-AKIS` kaydı açılır)
 - [ ] Revize — [not]
+
+### İş akışı
+
+Onaylanan istek tamamlandığında `apps/<uygulama>/docs/IS-AKIS.md` dosyasına kayıt eklenir.
+Format: `docs/IS-AKIS-SABLONU.md`.

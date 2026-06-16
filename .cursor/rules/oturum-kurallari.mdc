@@ -8,8 +8,10 @@ alwaysApply: true
 1. **Her oturuma okuyarak başla:**
    - `docs/ANAYASA.md`
    - İlgili `docs/STATUS.md` veya `docs/STATUS-FACTORY.md`
+   - İlgili `docs/IS-AKIS.md` veya `docs/IS-AKIS-FACTORY.md` (son kayıtlar)
    - `docs/AGENT-OTURUM-CHECKLIST.md`
-2. **Oturum sonunda STATUS güncelle** + `docs/TANIM-BITTI.md` kontrol et.
+2. **Her tamamlanan istekte `IS-AKIS.md` güncelle** (format: `docs/IS-AKIS-SABLONU.md`).
+3. **Oturum sonunda STATUS güncelle** + `docs/TANIM-BITTI.md` kontrol et.
 3. **Çekirdek değişikliğinde `pnpm verify`** — kırmızıysa bitirme.
 4. **Commit + `git push origin main`** — push'suz oturum bitmiş sayılmaz.
 5. Proje sahibi teknik değildir: sade Türkçe, benzetmelerle anlat.
