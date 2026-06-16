@@ -98,7 +98,7 @@ Son güncelleme: 2026-06-16
 - `docs/PROJE-SAHIBI-GOREVLERI.md`, `AGENT-OTURUM-CHECKLIST.md`, `.cursor/rules/oturum-kurallari.mdc`
 - `scripts/yeni-uygulama.mjs` — SPEC tarih yer tutucusu
 
-**Commit:** _(push sonrası)_
+**Commit:** `fe65dc6`
 **Durum:** ✅ tamamlandı
 
 ---
