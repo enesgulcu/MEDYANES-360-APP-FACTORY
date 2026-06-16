@@ -55,11 +55,14 @@ Yeni uygulama = şablonu kopyalamak + kimliklendirmek. Adımlar sırayla:
    (fabrika geneli iş ise `docs/STATUS-FACTORY.md`).
 3. Aynı uygulamanın `docs/IS-AKIS.md` (veya fabrika işi ise `docs/IS-AKIS-FACTORY.md`)
    son kayıtları okunur — önceki isteklerin bağlamı için.
-4. STATUS'taki "sıradaki adımlar" ve "bekleyen görevler" gözden geçirilir.
+4. Aynı uygulamanın `docs/SPEC.md` okunur — Kesinleşenler, Bekleyen sorular, Ertelenenler.
+5. STATUS'taki "sıradaki adımlar" ve "bekleyen görevler" gözden geçirilir.
 
 ### Oturum sırasında
 
 - Seviye 1 kararlar `KARARLAR.md`'ye tarihli ve gerekçeli işlenir.
+- Yeni ürün bilgisi önce `SPEC.md`'ye işlenir (`docs/URUN-ONAY-PROTOKOLU.md`).
+- Seviye 2/3 veya belirsiz istekte **"Anladım" özeti** ile onay alınır; onaysız kod yazılmaz.
 - **Her tamamlanan proje sahibi isteğinde** `IS-AKIS.md`'ye kayıt eklenir
   (format: `docs/IS-AKIS-SABLONU.md`; en yeni kayıt en altta).
 - Seviye 2/3 konular biriktirilmez; ortaya çıktığında proje sahibine sorulur.
@@ -68,11 +71,12 @@ Yeni uygulama = şablonu kopyalamak + kimliklendirmek. Adımlar sırayla:
 
 1. İlgili `STATUS.md` güncellenir: ne yapıldı, mevcut durum, sıradaki adımlar,
    proje sahibinden bekleyenler.
-2. `IS-AKIS` kayıtlarındaki commit alanları push sonrası hash ile güncellenir.
-3. Çekirdekte (`packages/`) değişiklik yapıldıysa `pnpm verify` koşulur;
+2. `SPEC.md` güncel tutulur (yeni kesinleşen / bekleyen / ertelenen maddeler).
+3. `IS-AKIS` kayıtlarındaki commit alanları push sonrası hash ile güncellenir.
+4. Çekirdekte (`packages/`) değişiklik yapıldıysa `pnpm verify` koşulur;
    kırmızıysa oturum bitmiş sayılmaz.
-4. Anlamlı bir bütün tamamlandıysa git commit atılır (Türkçe, açıklayıcı mesaj).
-5. **Commit'ler GitHub'a push edilir.** Push'suz oturum kapanmış sayılmaz;
+5. Anlamlı bir bütün tamamlandıysa git commit atılır (Türkçe, açıklayıcı mesaj).
+6. **Commit'ler GitHub'a push edilir.** Push'suz oturum kapanmış sayılmaz;
    repo her zaman güncel kalmalıdır.
 
 ## 3. Çekirdek (packages/) değişiklik süreci

@@ -5,9 +5,15 @@
 
 ---
 
+## Önemli işe başlamadan önce
+
+- [ ] Yeni bilgi `SPEC.md`'ye işlendi (Kesinleşenler / Bekleyen / Ertelenen).
+- [ ] Çelişki kontrolü yapıldı (`URUN-ONAY-PROTOKOLU.md`).
+- [ ] Seviye 2/3 veya belirsiz istekte proje sahibi **onayı alındı** ("Anladım" özeti).
+
 ## Özellik / görev bitti sayılması için
 
-- [ ] `docs/SPEC.md` veya ilgili özellik isteğindeki **kabul kriterleri** tek tek karşılandı.
+- [ ] İş **onaylı SPEC** veya onaylı özellik isteğindeki kabul kriterleri karşılandı.
 - [ ] Kullanıcıya görünen metinler çeviri dosyalarında (`tr.json` / `en.json`); koda gömülü metin yok.
 - [ ] Dış veri (API, Remote Config, form) Zod ile doğrulanıyor.
 - [ ] Hata sessiz yutulmuyor; anlamlı mesaj ve/veya loglama kaydı var.
@@ -34,5 +40,6 @@
 
 - [ ] `docs/STATUS.md` veya `docs/STATUS-FACTORY.md` güncellendi.
 - [ ] Oturumdaki tüm istekler `IS-AKIS` dosyasına işlendi; commit hash'leri yazıldı.
+- [ ] `SPEC.md` güncel (yeni kesinleşen / bekleyen / ertelenen maddeler).
 - [ ] `pnpm verify` koşuldu (çekirdek değişikliği varsa zorunlu).
 - [ ] Değişiklikler commit + **push** edildi (push'suz oturum bitmiş sayılmaz).

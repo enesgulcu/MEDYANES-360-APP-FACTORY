@@ -79,15 +79,16 @@ Agent'ın hafızası oturumlar arasında silinir; dokümanlar fabrikanın kalıc
 
 Her uygulamanın kendi `docs/` klasörü vardır:
 
-- `SPEC.md` — ürün tanımı (ne yapıyoruz, kimin için).
+- `SPEC.md` — ürün tanımı (ne yapıyoruz, kimin için). **Canlı bellek:** Kesinleşenler, Bekleyen sorular, Ertelenenler bölümleri zorunlu.
 - `STATUS.md` — mevcut durum, sıradaki adımlar, proje sahibinden bekleyen görevler.
 - `IS-AKIS.md` — proje sahibi istekleri ve yapılan işlerin kronolojik günlüğü (tarih, prompt, önce/sonra, teknik özet).
 - `onizleme/VITRIN.md` — ekran görüntüleri vitrini (proje sahibi görsel inceleme; agent günceller).
 - `KARARLAR.md` — tarihli kararlar ve gerekçeleri.
 
+Fabrika süreçleri: `docs/URUN-ONAY-PROTOKOLU.md` (SPEC güncelleme, onay kapısı, çelişki kontrolü).
 Fabrika geneli iş akışı: `docs/IS-AKIS-FACTORY.md`. Kayıt formatı: `docs/IS-AKIS-SABLONU.md`.
 
-**Her tamamlanan proje sahibi isteğinde ilgili `IS-AKIS.md` güncellenir. Her çalışma oturumunun sonunda ilgili STATUS dosyası güncellenir. İstisnasız.**
+**Her tamamlanan proje sahibi isteğinde ilgili `IS-AKIS.md` güncellenir. Yeni ürün bilgisi önce `SPEC.md`'ye işlenir. Önemli iş öncesi onay protokolü: `docs/URUN-ONAY-PROTOKOLU.md`. Her çalışma oturumunun sonunda ilgili STATUS dosyası güncellenir. İstisnasız.**
 
 ## 6. Karar ve bütçe protokolü
 

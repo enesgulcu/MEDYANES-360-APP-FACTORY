@@ -81,4 +81,15 @@ Telefonda gezmeden ekranları görmek için:
 
 `apps/<uygulama>/docs/onizleme/VITRIN.md`
 
-Detaylı rehber: `docs/GORSEL-VITRIN.md`. Terminal gerekmez; GitHub'da dosyayı açman yeterli.
+Detaylı rehber: `docs/GORSEL-VITRIN.md`. Terminal gerekmez.
+
+## Konuşurken nasıl çalışırsın? (ürün onayı)
+
+Serbest konuş — agent senin için SPEC'e yazar. Önemli işlerde agent özet sunar:
+
+> **Anladım:** … **Yapacağım:** … **Onaylıyor musun?**
+
+Sen **Evet** veya **Şunu değiştir** dersin. Çelişki sorulursa hangisini istediğini seç.
+
+Canlı ürün belleği: `apps/<uygulama>/docs/SPEC.md` (Kesinleşenler / Bekleyen / Ertelenen).  
+Protokol: `docs/URUN-ONAY-PROTOKOLU.md`.

@@ -1,14 +1,56 @@
 # SPEC — Alışkanlık (Pilot Uygulama)
 
-> Ürün tanımı. Fabrikanın ilk gerçek uygulaması; tüm çekirdek modüllerin uçtan uca
-> test edildiği pilot.
+> **Canlı ürün belleği.** Fabrikanın ilk gerçek uygulaması.
+> Protokol: `docs/URUN-ONAY-PROTOKOLU.md`
+
+Son SPEC güncellemesi: 2026-06-16
+
+---
+
+## Kesinleşenler (onaylı / uygulanmış)
+
+- Pilot uygulama: günlük alışkanlık takibi; birincil pazar **Türkiye**, dil **TR + EN**.
+- Bundle ID: `com.medyanes360.aliskanlik`; geliştirici markası **MEDYANES 360**.
+- Tema **A — Sakin Yeşil** (`#059669` / `#F0FDF4`) — proje sahibi onayı (2026-06-11).
+- Firebase: Auth (anonim) + Firestore veri; Expo Go için **Web SDK** (KARARLAR).
+- Ücretsiz planda **en fazla 3 alışkanlık** (Remote Config: `ucretsiz_aliskanlik_limiti`, varsayılan 3).
+- Gelir modeli: **freemium + abonelik** (RevenueCat); dış ödeme / web ödeme **yasak**.
+- Onboarding **2 adım**; ardından paywall (uzaktan açılıp kapatılabilir).
+- Ayarlar zorunlu set: dil, karanlık mod (sistem/açık/koyu), gizlilik linki, hesap/veri silme.
+- Bildirim izni yalnızca **hatırlatma özelliği** için ve **bağlamsal** istenecek (toplu izin yok).
+- İzin envanteri dışı: konum, kamera, mikrofon, rehber, ATT **istenmeyecek**.
+- MVP Aşama 1 **kodlandı**: liste, ekleme formu, günlük işaretleme, mock paywall, ayarlar.
+- Expo Go / web önizleme ile geliştirme; gerçek IAP için **EAS native build** gerekir.
+
+## Bekleyen sorular (agent soracak)
+
+- [ ] **Telefon testi:** Expo Go'da ekle/işaretle/paywall sorunsuz mu? (proje sahibi)
+- [ ] **Mağaza görünen adı** kesin mi: "Alışkanlık" mı, başka isim mi?
+- [ ] **Tasarım brifi** (TASARIM.md) — mağaza ekran görüntüsü ve his için tamamlanacak
+- [ ] Premium'da kesin hangi özellikler? (şu an: sınırsız alışkanlık + gelişmiş grafik **taslak**)
+- [ ] Hatırlatma: varsayılan saat var mı, yoksa kullanıcı her alışkanlık için mi seçer?
+- [ ] **Expo hesabı** açıldı mı? (EAS preview için)
+
+## Bilerek ertelenenler (şimdilik yok)
+
+| Özellik                           | Neden ertelendi                                  | Tahmini ne zaman             |
+| --------------------------------- | ------------------------------------------------ | ---------------------------- |
+| Push hatırlatma (FCM)             | MVP önce liste/işaretleme; izin bağlamsal olacak | Telefon testi sonrası sprint |
+| İlerleme grafiği (victory-native) | MVP Aşama 1 kapsamı dışında bırakıldı            | FCM sonrası                  |
+| EAS development build             | Expo hesabı bekleniyor                           | Expo hazır olunca            |
+| Gerçek RevenueCat IAP             | Native build + mağaza ürünleri gerekir           | EAS sonrası                  |
+| Crashlytics (production)          | Canlı kullanıcı öncesi                           | Mağaza öncesi                |
+| Sosyal / arkadaş yarışması        | Kapsam dışı (MVP)                                | Değerlendirme yok            |
+| AI koçluk                         | Seviye 2/3 ayrı karar                            | Talep olursa                 |
+
+---
 
 ## Kimliklendirme
 
 | Alan                | Değer                                                                     |
 | ------------------- | ------------------------------------------------------------------------- |
 | Klasör              | `apps/aliskanlik`                                                         |
-| Görünen ad (mağaza) | Alışkanlık _(tasarım brifi sonrası netleşebilir)_                         |
+| Görünen ad (mağaza) | Alışkanlık _(bekleyen soru — netleşecek)_                                 |
 | Bundle ID (iOS)     | `com.medyanes360.aliskanlik`                                              |
 | Paket adı (Android) | `com.medyanes360.aliskanlik`                                              |
 | URL scheme          | `aliskanlik`                                                              |
@@ -34,66 +76,62 @@ minimum sürtünme ile sunar.
 
 ## Pilotun amacı (fabrika testi)
 
-Bu uygulama yalnızca "ürün" değil; **fabrika modüllerinin gerçek üründe doğrulanması**
-için pilot:
-
-| Modül                       | Pilot kullanımı                                   |
-| --------------------------- | ------------------------------------------------- |
-| Kimlik                      | Anonim giriş, hesap silme                         |
-| Form (RHF + Zod)            | Alışkanlık ekleme/düzenleme                       |
-| Liste + EmptyState          | Alışkanlık listesi                                |
-| Bildirim (mock→gerçek)      | Hatırlatma zamanları                              |
-| Paywall (mock)              | Premium: sınırsız alışkanlık, gelişmiş grafik vb. |
-| Uzak ayar                   | Paywall aç/kapa, deneme süresi                    |
-| Analitik + loglama          | Olay takibi                                       |
-| Dil (TR/EN)                 | Çift dil                                          |
-| Karanlık mod                | Ayarlardan Sistem/Açık/Koyu                       |
-| Animasyon (Moti/Reanimated) | Tamamlama, geçişler                               |
-| Grafik (victory-native)     | Haftalık/aylık ilerleme                           |
+| Modül                   | Pilot kullanımı              | Durum        |
+| ----------------------- | ---------------------------- | ------------ |
+| Kimlik                  | Anonim giriş, hesap silme    | ✅ Bağlı     |
+| Form (RHF + Zod)        | Alışkanlık ekleme            | ✅           |
+| Liste + EmptyState      | Alışkanlık listesi           | ✅           |
+| Bildirim                | Hatırlatma                   | ⏳ Ertelendi |
+| Paywall                 | Premium sınır (3 alışkanlık) | ✅ Mock      |
+| Uzak ayar               | Limit, paywall aç/kapa       | ✅           |
+| Analitik + loglama      | Olay takibi                  | ✅ Mock      |
+| Dil (TR/EN)             | Çift dil                     | ✅           |
+| Karanlık mod            | Ayarlardan Sistem/Açık/Koyu  | ✅           |
+| Grafik (victory-native) | Haftalık/aylık ilerleme      | ⏳ Ertelendi |
 
 ## Temel özellikler (MVP)
 
-- [ ] Onboarding (2–3 adım, değer önerisi)
-- [ ] Alışkanlık listesi (günlük işaretleme: yapıldı / yapılmadı)
-- [ ] Alışkanlık ekleme/düzenleme formu (ad, ikon/renk, hedef sıklık)
-- [ ] Hatırlatma saati (bildirim izni **bağlamında** istenir)
-- [ ] Basit ilerleme grafiği (streak / haftalık özet)
-- [ ] Ayarlar: dil, karanlık mod, gizlilik, hesap silme
-- [ ] Paywall (mock): premium sınırlar (ör. ücretsiz max 3 alışkanlık)
+- [x] Onboarding (2 adım)
+- [x] Alışkanlık listesi (günlük işaretleme)
+- [x] Alışkanlık ekleme formu (ad, renk)
+- [ ] Hatırlatma saati + bildirim (ertelendi)
+- [ ] Basit ilerleme grafiği (ertelendi)
+- [x] Ayarlar: dil, karanlık mod, gizlilik, hesap silme, abonelik kartı (RC hazırsa)
+- [x] Paywall (mock / Expo Go); limit aşımında yönlendirme
+
+## Kabul kriterleri (test edilebilir)
+
+- [x] İlk açılışta onboarding gösterilir; tamamlanınca paywall veya ana sayfa.
+- [x] Kullanıcı alışkanlık ekleyebilir; Firestore'da saklanır (Firebase açıkken).
+- [x] Kullanıcı bugünü işaretleyebilir / kaldırabilir.
+- [x] Ücretsiz kullanıcı 3 alışkanlıktan sonra paywall'a yönlendirilir.
+- [x] Ayarlardan dil TR/EN anında değişir.
+- [x] Ayarlardan tema sistem/açık/koyu seçilebilir.
+- [ ] Telefonda (Expo Go) uçtan uca manuel test — proje sahibi onayı bekliyor.
+- [ ] Hatırlatma kurulduğunda bildirim gelir (henüz uygulanmadı).
 
 ## Gelir modeli
 
-- **Freemium + abonelik** (RevenueCat / mağaza IAP).
-- Ücretsiz: sınırlı alışkanlık sayısı, temel istatistik.
-- Premium: sınırsız alışkanlık, gelişmiş grafikler, özel hatırlatmalar _(net liste tasarım brifi sonrası)_.
-- Dijital içerik dış ödeme **yasak** (ANAYASA §8).
+- **Freemium + abonelik** (RevenueCat).
+- Ücretsiz: en fazla 3 alışkanlık, temel istatistik.
+- Premium: sınırsız alışkanlık, gelişmiş grafikler _(detay bekleyen soru)_.
 
 ## İzin envanteri (ANAYASA §8)
 
-| İzin            | Platform      | Özellik                          | Ne zaman istenir                                   | Gerekçe metni (TR)                                                                                | Gerekçe metni (EN)                                                                 |
-| --------------- | ------------- | -------------------------------- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| Bildirim (push) | iOS + Android | Günlük alışkanlık hatırlatmaları | Kullanıcı alışkanlığa hatırlatma saati eklediğinde | "Seçtiğin saatte alışkanlık hatırlatmaları gönderebilmemiz için bildirim iznine ihtiyacımız var." | "We need notification permission to send habit reminders at the times you choose." |
+| İzin            | Platform      | Özellik                          | Ne zaman istenir                       | Gerekçe (TR)                                                                     |
+| --------------- | ------------- | -------------------------------- | -------------------------------------- | -------------------------------------------------------------------------------- |
+| Bildirim (push) | iOS + Android | Günlük alışkanlık hatırlatmaları | Kullanıcı hatırlatma saati eklediğinde | Seçtiğin saatte hatırlatma gönderebilmemiz için bildirim iznine ihtiyacımız var. |
 
-**Envanter dışı izin:** Yok. Konum, kamera, mikrofon, rehber, takip (ATT) vb. **istenmeyecek**.
-
-**Reddedilme davranışı:** Bildirim reddedilirse uygulama çalışır; hatırlatma kurulamaz
-veya "bildirimler kapalı" bilgisi gösterilir; manuel takip devam eder.
-
-## Dil ve yerelleştirme
-
-- Varsayılan dil: **Türkçe** (cihaz dili desteklenmiyorsa TR'ye düş).
-- İngilizce tam destek (çeviri dosyaları).
-- Tüm kullanıcı metinleri `tr.json` / `en.json` — koda gömülü metin yok.
+**Reddedilme:** Uygulama çalışır; hatırlatma kurulamaz; manuel işaretleme devam eder.
 
 ## Tasarım brifi cevapları
 
-> **BEKLEMEDE** — Proje sahibi TASARIM.md brif sorularını yanıtlamadan tema/kod
-> geliştirmesine geçilmeyecek.
+> **BEKLEMEDE** — TASARIM.md brif soruları tamamlanacak. Tema A renkleri kesinleşti.
 
-## Kapsam dışı (bilinçli olarak YAPILMAYACAKLAR)
+## Kapsam dışı
 
-- Sosyal paylaşım / arkadaş yarışması (MVP sonrası değerlendirilebilir)
-- Konum veya sağlık sensörü entegrasyonu
+- Sosyal paylaşım / arkadaş yarışması
+- Konum, sağlık sensörü
 - Web ödeme / dış abonelik linki
-- Uygulama açılışında toplu izin isteme
-- AI koçluk (Seviye 2/3 ayrı karar)
+- Uygulama açılışında toplu izin
+- AI koçluk (ayrı karar)

@@ -79,6 +79,30 @@ Son güncelleme: 2026-06-16
 
 ---
 
+## 2026-06-16 18:00 — Ürün onay protokolü (SPEC canlı bellek)
+
+**İstek (proje sahibi):**
+
+> Ürün onay protokolünü kur; eksik kalmasın, kontrollerini yap.
+
+**Önce → Sonra (sade):**
+
+- **Önce:** SPEC vardı ama canlı bellek disiplini (kesinleşen / bekleyen / ertelenen) ve onay kapısı süreçlere tam bağlı değildi.
+- **Sonra:** `URUN-ONAY-PROTOKOLU.md`; SPEC şablonları güncellendi; agent oturum kuralları ve checklist'e onay + çelişki kontrolü eklendi.
+
+**Teknik müdahale:**
+
+- `docs/URUN-ONAY-PROTOKOLU.md` — "Anladım" özeti, çelişki kontrolü, SPEC bölümleri
+- `apps/_sablon/docs/SPEC.md`, `apps/aliskanlik/docs/SPEC.md` — Kesinleşenler / Bekleyen / Ertelenen
+- `docs/ANAYASA.md`, `SURECLER.md`, `TANIM-BITTI.md`, `EKOSISTEM.md`, `OZELLIK-ISTEGI-SABLONU.md`
+- `docs/PROJE-SAHIBI-GOREVLERI.md`, `AGENT-OTURUM-CHECKLIST.md`, `.cursor/rules/oturum-kurallari.mdc`
+- `scripts/yeni-uygulama.mjs` — SPEC tarih yer tutucusu
+
+**Commit:** _(push sonrası)_
+**Durum:** ✅ tamamlandı
+
+---
+
 ## 2026-06-16 12:00 — Görsel vitrin (ekran önizleme) sistemi
 
 **İstek (proje sahibi):**

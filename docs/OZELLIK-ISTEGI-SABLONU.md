@@ -1,7 +1,9 @@
 # Özellik İsteği Şablonu
 
 > Proje sahibi yeni bir özellik veya değişiklik istediğinde agent bu şablonu
-> doldurur ve onaya sunar. Onaylanınca SPEC veya STATUS'a işlenir.
+> doldurur ve onaya sunar. Onaylanınca `SPEC.md` → **Kesinleşenler** ve kabul kriterleri güncellenir.
+
+Protokol: `docs/URUN-ONAY-PROTOKOLU.md`
 
 ---
 
@@ -38,7 +40,7 @@
 
 ### Proje sahibi onayı
 
-- [ ] Onaylandı — uygulamaya geç (onay sonrası ilk `IS-AKIS` kaydı açılır)
+- [ ] Onaylandı — `SPEC.md` Kesinleşenler'e işle, uygulamaya geç
 - [ ] Revize — [not]
 
 ### İş akışı

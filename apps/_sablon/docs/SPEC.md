@@ -1,6 +1,37 @@
 # SPEC — [Uygulama Adı]
 
-> Ürün tanımı. Onaylanmadan geliştirmeye başlanmaz.
+> **Canlı ürün belleği.** Onaylanmadan geliştirmeye başlanmaz.
+> Proje sahibinin söyledikleri buraya işlenir; konuşma kaybolmaz.
+> Protokol: `docs/URUN-ONAY-PROTOKOLU.md`
+
+Son SPEC güncellemesi: YYYY-AA-GG
+
+---
+
+## Kesinleşenler (onaylı / uygulanmış)
+
+> Proje sahibi ve agent'ın **anlaştığı ve değişmeyecek** sayılan maddeler.
+> Yeni bilgi çelişirse agent sorar (Seviye 2).
+
+- [ ] _(Henüz doldurulmadı — ilk oturumda agent proje sahibiyle doldurur)_
+
+## Bekleyen sorular (agent soracak)
+
+> Netleşmeden koda geçilmeyecek maddeler.
+
+- [ ] Tasarım brifi (TASARIM.md) tamamlandı mı?
+- [ ] Mağaza görünen adı kesin mi?
+- [ ] _(diğer sorular…)_
+
+## Bilerek ertelenenler (şimdilik yok)
+
+> Sonraya bırakılanlar — unutulmasın diye burada.
+
+| Özellik | Neden ertelendi | Tahmini ne zaman |
+| ------- | --------------- | ---------------- |
+| —       | —               | —                |
+
+---
 
 ## Tek cümlelik tanım
 

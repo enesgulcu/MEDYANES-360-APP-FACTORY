@@ -7,15 +7,19 @@ alwaysApply: true
 
 1. **Her oturuma okuyarak başla:**
    - `docs/ANAYASA.md`
+   - İlgili `docs/SPEC.md` (Kesinleşenler / Bekleyen / Ertelenen)
    - İlgili `docs/STATUS.md` veya `docs/STATUS-FACTORY.md`
    - İlgili `docs/IS-AKIS.md` veya `docs/IS-AKIS-FACTORY.md` (son kayıtlar)
    - `docs/AGENT-OTURUM-CHECKLIST.md`
-2. **Her tamamlanan istekte `IS-AKIS.md` güncelle** (format: `docs/IS-AKIS-SABLONU.md`).
-3. **Oturum sonunda STATUS güncelle** + `docs/TANIM-BITTI.md` kontrol et.
-3. **Çekirdek değişikliğinde `pnpm verify`** — kırmızıysa bitirme.
-4. **Commit + `git push origin main`** — push'suz oturum bitmiş sayılmaz.
-5. Proje sahibi teknik değildir: sade Türkçe, benzetmelerle anlat.
-6. Karar protokolü (ANAYASA §6): Seviye 1 → KARARLAR; 2/3 → onay bekle.
-7. Yeni uygulama: `pnpm new-app <ad>` — elle kopyalama yapma.
-8. Özellik isteği: `docs/OZELLIK-ISTEGI-SABLONU.md` doldur, onay al.
-9. Ekran görünümü değiştiyse: `pnpm onizleme <uygulama>` + `VITRIN.md` güncelle (`docs/GORSEL-VITRIN.md`).
+2. **Yeni bilgi / istek → önce `SPEC.md` güncelle** (`docs/URUN-ONAY-PROTOKOLU.md`).
+3. **Önemli işe girmeden "Anladım" özeti + onay** (Seviye 2/3 veya belirsiz istek).
+4. **Çelişki görürsen tahmin etme** — SPEC/KARARLAR/IS-AKIS'e bak, sor.
+5. **Her tamamlanan istekte `IS-AKIS.md` güncelle** (`docs/IS-AKIS-SABLONU.md`).
+6. **Oturum sonunda STATUS güncelle** + `docs/TANIM-BITTI.md` kontrol et.
+7. **Çekirdek değişikliğinde `pnpm verify`** — kırmızıysa bitirme.
+8. **Commit + `git push origin main`** — push'suz oturum bitmiş sayılmaz.
+9. Proje sahibi teknik değildir: sade Türkçe, benzetmelerle anlat.
+10. Karar protokolü (ANAYASA §6): Seviye 1 → KARARLAR; 2/3 → onay bekle.
+11. Yeni uygulama: `pnpm new-app <ad>` — elle kopyalama yapma.
+12. Büyük özellik: `docs/OZELLIK-ISTEGI-SABLONU.md` doldur, onay al.
+13. Ekran görünümü değiştiyse: `pnpm onizleme <uygulama>` + `VITRIN.md` (`docs/GORSEL-VITRIN.md`).

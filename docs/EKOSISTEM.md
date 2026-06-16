@@ -14,12 +14,21 @@
 | **GitHub Actions** | Her push'ta otomatik `pnpm verify` — agent hata yapsa bile yakalar |
 | **Dokümanlar**     | Oturumlar arası kalıcı hafıza (STATUS, IS-AKIS, SPEC, KARARLAR)    |
 
+## Ürün onay döngüsü (yanlış anlaşılmayı önler)
+
+```
+Proje sahibi konuşur → Agent SPEC günceller → "Anladım" özeti → Onay
+      → Kod + verify + VITRIN → IS-AKIS kaydı
+```
+
+Detay: `docs/URUN-ONAY-PROTOKOLU.md`. SPEC'te üç bölüm: **Kesinleşenler**, **Bekleyen sorular**, **Ertelenenler**.
+
 ## Fikirden uygulamaya akış
 
 ```
 1. Proje sahibi fikir anlatır
       ↓
-2. Agent OZELLIK-ISTEGI-SABLONU veya SPEC taslağı çıkarır → onay
+2. Agent OZELLIK-ISTEGI veya SPEC taslağı çıkarır → SPEC Kesinleşenler → onay
       ↓
 3. Tasarım brifi (TASARIM.md) → tema önerisi → onay
       ↓
@@ -53,7 +62,7 @@ Mock → canlı geçişte **ekran kodu değişmez**; yalnızca `istemciler.ts` v
 4. GitHub Actions CI (uzak verify)
 5. Birim testleri (çekirdek paketler)
 6. Maestro smoke E2E (şablon uygulama)
-7. STATUS + IS-AKIS + KARARLAR disiplini
+7. STATUS + IS-AKIS + SPEC + KARARLAR disiplini
 
 ## İş akışı günlüğü (IS-AKIS)
 
