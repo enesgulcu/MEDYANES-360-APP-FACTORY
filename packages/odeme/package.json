@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "jest": "^29.7.0",
-    "react-native": "0.85.3",
+    "react-native": "0.86.0",
     "react-native-purchases": "^10.2.2",
     "react-native-purchases-ui": "^10.2.2"
   }
