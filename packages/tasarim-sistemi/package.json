@@ -21,6 +21,6 @@
     "expo": "~56.0.11",
     "jest-expo": "~56.0.3",
     "react": "19.2.3",
-    "react-native": "0.85.3"
+    "react-native": "0.86.0"
   }
 }
